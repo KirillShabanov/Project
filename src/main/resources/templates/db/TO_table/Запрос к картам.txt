@@ -1,0 +1,28 @@
+
+
+SELECT number_TO, automobile, modification, partNumber, amount, jobCode, jobTime FROM to_regulations
+LEFT JOIN regulations ON to_regulations.FK_numTO = regulations.id
+LEFT JOIN auto ON to_regulations.FK_autoTO = auto.id
+LEFT JOIN part ON to_regulations.FK_partNumberTO = part.id
+LEFT JOIN normalization ON to_regulations.FK_jobCodeTO = normalization.id  WHERE FK_numTO = 6 AND FK_autoTO = 21;
+
+SELECT automobile, modification, partName, jobName FROM to_regulations
+LEFT JOIN regulations ON to_regulations.FK_numTO = regulations.id
+LEFT JOIN auto ON to_regulations.FK_autoTO = auto.id
+LEFT JOIN part ON to_regulations.FK_partNumberTO = part.id
+LEFT JOIN normalization ON to_regulations.FK_jobCodeTO = normalization.id  WHERE FK_numTO = 6 AND FK_autoTO = 21;
+
+SELECT clientFullName, phone, vin, automobile, modification, saleDate FROM carOwner
+LEFT JOIN clientsСard ON carOwner.FK_owner = clientsСard.id
+LEFT JOIN automobileCard ON carOwner.FK_vin = automobileCard.id
+LEFT JOIN auto ON carOwner.FK_automobile = auto.id;
+
+
+SELECT clientFullName, vin, automobile, modification, DQ010, DQ020, DQ030, DQ040 FROM carOwner
+LEFT JOIN clientsСard ON carOwner.FK_owner = clientsСard.id
+LEFT JOIN automobileCard ON carOwner.FK_vin = automobileCard.id
+LEFT JOIN auto ON carOwner.FK_automobile = auto.id
+LEFT JOIN qualityReport ON carOwner.FK_owner = qualityReport.FK_owner;
+
+
+

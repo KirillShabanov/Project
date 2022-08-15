@@ -1,0 +1,95 @@
+.open maintenancePrice
+PRAGMA FOREIGN_KEYS = on;
+.mode box
+
+CREATE TABLE regulations (id INTEGER PRIMARY KEY AUTO_INCREMENT,
+                          number_TO VARCHAR(50) NOT NULL);
+
+
+CREATE TABLE auto (id INTEGER PRIMARY KEY AUTO_INCREMENT,
+                   automobile VARCHAR(50) NOT NULL,
+                   modification VARCHAR(50) NOT NULL);
+
+
+CREATE TABLE normalization (id INTEGER PRIMARY KEY AUTO_INCREMENT,
+                            jobCode INTEGER NOT NULL,
+                            jobName VARCHAR(50) NOT NULL,
+                            jobTime DOUBLE NOT NULL,
+                            priceTime DOUBLE NOT NULL);
+
+
+CREATE TABLE part (id INTEGER PRIMARY KEY AUTO_INCREMENT,
+                   partNumber VARCHAR(50) NOT NULL,
+                   partName VARCHAR(150) NOT NULL,
+                   partPrice DOUBLE NOT NULL);
+
+
+
+CREATE TABLE to_regulations (id INTEGER PRIMARY KEY AUTO_INCREMENT,
+                             FK_numTO INTEGER NOT NULL,
+                             FK_autoTO INTEGER NOT NULL,
+                             FK_partNumberTO INTEGER NOT NULL,
+                             amount DOUBLE NOT NULL,
+                             FK_jobCodeTO INTEGER DEFAULT(NULL),
+                             FOREIGN KEY (FK_numTO) REFERENCES regulations (id),
+                             FOREIGN KEY (FK_autoTO) REFERENCES auto (id),
+                             FOREIGN KEY (FK_partNumberTO) REFERENCES part (id),
+                             FOREIGN KEY (FK_jobCodeTO) REFERENCES normalization (id));
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+CREATE TABLE clientsСard (id INTEGER PRIMARY KEY AUTOINCREMENT,
+							clientFullName VARCHAR(75) NOT NULL,
+							city VARCHAR(50) NOT NULL,
+							adress VARCYAR(150) NOT NULL,
+							phone INTEGER NOT NULL);
+							
+
+CREATE TABLE automobileCard (id INTEGER PRIMARY KEY AUTOINCREMENT,
+								vin VARCHAR(17) NOT NULL,
+								alter_vin VARCHAR(17),
+								reg_num VARCHAR(10) NOT NULL,
+								relaseDate DATE,
+								saleDate DATE NOT NULL);
+								
+								
+CREATE TABLE carOwner (id INTEGER PRIMARY KEY AUTOINCREMENT,
+						FK_owner INTEGER,
+						FK_vin INTEGER NOT NULL,
+						FK_automobile INTEGER,
+						FOREIGN KEY (FK_owner) REFERENCES clientsСard (id),
+						FOREIGN KEY (FK_vin) REFERENCES automobileCard (id),
+						FOREIGN KEY (FK_automobile) REFERENCES auto (id));
+						
+						
+CREATE TABLE qualityReport (id INTEGER PRIMARY KEY AUTOINCREMENT,
+							FK_owner INTEGER NOT NULL,
+							dateCall DATE NOT NULL,
+							BQ010 INTEGER,
+							BQ020 INTEGER,
+							BQ030 INTEGER,
+							BQ040 INTEGER,
+							BQ050 INTEGER,
+							BQ060 INTEGER,
+							BQ070 INTEGER,
+							BQ080 INTEGER,
+							SQ010 INTEGER NOT NULL DEFAULT(1),
+							SQ020 INTEGER,
+							SQ030 INTEGER,
+							SQ040 INTEGER,
+							SQ050 INTEGER,
+							SQ060 INTEGER,
+							SQ070 INTEGER,
+							SQ080 INTEGER,
+							SQ090 INTEGER,
+							SQ110 INTEGER,
+							SQ120 INTEGER,
+							SQ130 INTEGER,
+							SQ140 INTEGER,
+							DQ010 INTEGER,
+							DQ020 INTEGER,
+							DQ030 INTEGER,
+							DQ040 INTEGER,
+							FOREIGN KEY (FK_owner) REFERENCES carOwner (id));				
+
+
+					

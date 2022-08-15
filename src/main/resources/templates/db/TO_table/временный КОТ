@@ -1,0 +1,55 @@
+import com.home.MyWorkTime.service.SelectForTOService;
+import lombok.AllArgsConstructor;
+import lombok.extern.java.Log;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/to_regulations")
+@AllArgsConstructor
+@Log
+@CrossOrigin
+public class SelectForTOController {
+
+    private final SelectForTOService selectForTOService;
+
+    @GetMapping("/forTO/{IdTO}")
+    public Long TOIdForSelect(@PathVariable Long IdTO){
+        log.info("Handling find ID TO: " + IdTO);
+        return null;
+    }
+
+    @GetMapping("/forAuto/{IdAuto}")
+    public Long AutoIdForSelect(@PathVariable Long IdAuto){
+        log.info("Handling find ID Auto: " + IdAuto);
+        return null;
+    }
+
+}
+_______________________________________________________________________________________________________________________
+
+
+let btn_SearchShowTO = document.getElementById('btn_SearchShowTO')
+
+
+async function btnSearchShowTO(){
+
+    let selectTO = document.getElementById('selectTO');
+    selectTO = selectTO.value;
+    console.log("ID TO: " + selectTO);
+
+    fetch(`http://localhost:8080/to_regulations/forTO/${selectTO}`, {
+        method: 'GET',
+        redirect: 'follow'
+    }) .catch(error => console.log('error', error));
+
+    let selectAuto = document.getElementById('selectAuto');
+    selectAuto = selectAuto.value;
+    console.log("ID Auto: " + selectAuto);
+
+    fetch(`http://localhost:8080/to_regulations/forAuto/${selectAuto}`, {
+        method: 'GET',
+        redirect: 'follow'
+    }) .catch(error => console.log('error', error));
+
+};
+
