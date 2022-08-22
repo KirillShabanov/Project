@@ -114,7 +114,7 @@
 .part {
     width: 100px;
     height: 100px;
-    background-color: black;
+    background-color: aquamarine;
     padding: 35px;
     margin: 15px;
 }
@@ -126,5 +126,29 @@
     justify-content: space-between;
     
 }
+
+.pricePart {
+    margin: 3px 5px 5px 410px;
+    float: left;
+}
+.pricePartTO {
+    margin-left: 65px; 
+}
+.priceJob {
+    margin: 3px 5px 5px 440px;
+    float: left;
+}
+.priceJobTO {
+    margin-left: 65px; 
+}
+.fullPrice {
+    margin: 3px 5px 5px 440px;
+    float: left;
+}
+.fullPriceTO {
+    margin-top: 15px;
+    margin-left: 65px; 
+}
+
 
 

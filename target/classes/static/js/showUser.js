@@ -22,9 +22,9 @@ function showUser(){
                 '<td>'+user.login+'</td>\n' +
                 '<td>'+user.password+'</td>\n' +
                 '<td>'+user.level_access+'</td>' +
-                '<td><button style="margin: 5px" onclick="updateUser('+user.id+')" type="button" ><i class="fa fa-pencil aria-hidden=true"></i></button>\n' +
+                '<td><a class="button" style="margin: 5px" onclick="updateUser('+user.id+')" type="button" ><i class="fa fa-pencil aria-hidden=true" style="color: black"></i></a>\n' +
                 
-                '<button style="margin: 5px" onclick="deleteUser('+user.id+')" type="button"><i class="fa fa-trash"></i></button></td></tr>';
+                '<a class="button" style="margin: 5px" onclick="deleteUser('+user.id+')" type="button"><i class="fa fa-trash" style="color: black"></i></a></td></tr>';
                 document.getElementById("usersList").innerHTML = userTable;
             }
         }

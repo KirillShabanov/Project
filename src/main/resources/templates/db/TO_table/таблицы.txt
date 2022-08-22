@@ -36,23 +36,32 @@ CREATE TABLE to_regulations (id INTEGER PRIMARY KEY AUTO_INCREMENT,
                              FOREIGN KEY (FK_partNumberTO) REFERENCES part (id),
                              FOREIGN KEY (FK_jobCodeTO) REFERENCES normalization (id));
 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+CREATE TABLE warehouse_car (id INTEGER PRIMARY KEY AUTO_INCREMENT,
+                            vin VARCHAR(17) UNIQUE NOT NULL,
+                            alter_vin VARCHAR(17),
+                            date_arrival DATE NOT NULL,
+                            date_release DATE NOT NULL,
+                            date_sale DATE,
+                            create_date_position DATE NOT NULL);
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-CREATE TABLE clientsСard (id INTEGER PRIMARY KEY AUTOINCREMENT,
-							clientFullName VARCHAR(75) NOT NULL,
+CREATE TABLE clients_card (id INTEGER PRIMARY KEY AUTOINCREMENT,
+							client_full_name VARCHAR(75) NOT NULL,
 							city VARCHAR(50) NOT NULL,
-							adress VARCYAR(150) NOT NULL,
+							address VARCHAR(150) NOT NULL,
 							phone INTEGER NOT NULL);
 							
 
-CREATE TABLE automobileCard (id INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE automobile_card (id INTEGER PRIMARY KEY AUTOINCREMENT,
 								vin VARCHAR(17) NOT NULL,
 								alter_vin VARCHAR(17),
-								reg_num VARCHAR(10) NOT NULL,
-								relaseDate DATE,
-								saleDate DATE NOT NULL);
+								reg_num VARCHAR(10),
+								date_release DATE,
+								date_sale DATE);
 								
 								
-CREATE TABLE carOwner (id INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE car_owner (id INTEGER PRIMARY KEY AUTOINCREMENT,
 						FK_owner INTEGER,
 						FK_vin INTEGER NOT NULL,
 						FK_automobile INTEGER,
@@ -61,9 +70,9 @@ CREATE TABLE carOwner (id INTEGER PRIMARY KEY AUTOINCREMENT,
 						FOREIGN KEY (FK_automobile) REFERENCES auto (id));
 						
 						
-CREATE TABLE qualityReport (id INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE quality_report (id INTEGER PRIMARY KEY AUTOINCREMENT,
 							FK_owner INTEGER NOT NULL,
-							dateCall DATE NOT NULL,
+							date_call DATE NOT NULL,
 							BQ010 INTEGER,
 							BQ020 INTEGER,
 							BQ030 INTEGER,

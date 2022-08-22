@@ -61,11 +61,6 @@ body {
 .popup__addUser {
     padding: 10px;
 }
-.form-user {
-    border-radius: 5px;
-    margin: 8px;
-    padding: 5px;
-}
 .btn_user {
     background-color: black;
     margin: 8px;
@@ -79,25 +74,12 @@ body {
 .btn_user:active {
     color: rgba(255, 182, 46, 0.699);
 }
-
 .popup__updateUser {
     padding: 10px;
 }
-.form-user {
-    border-radius: 5px;
-    margin: 8px;
-    padding: 5px;
-}
-.btn_user {
-    background-color: black;
-    margin: 8px;
-    padding: 5px;
-    color: white;
-    border-radius: 5px;
-}
-.btn_user:hover {
-    text-decoration: underline;
-}
-.btn_user:active {
-    color: rgba(255, 182, 46, 0.699);
-}
+
+
+
+
+
+

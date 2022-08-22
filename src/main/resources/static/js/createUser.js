@@ -14,9 +14,10 @@ function createUser(){
     xmlhttp.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200){
             showUser(); 
+            
         }
     };
-    clear();
+    
 }
 function clear(){
     document.getElementById("floatingName").value = "";

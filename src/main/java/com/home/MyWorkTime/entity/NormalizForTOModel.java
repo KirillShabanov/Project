@@ -1,13 +1,15 @@
 package com.home.MyWorkTime.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+
 
 @Entity
 @Table(name="normalization")
@@ -23,15 +25,19 @@ public class NormalizForTOModel {
 
     @Column
     private Integer jobCode;
+    @Column
     private String jobName;
+    @Column
     private Double jobTime;
+    @Column
     private Double priceTime;
 
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(name = "to_regulations",
             joinColumns = @JoinColumn(name = "id"),
-            inverseJoinColumns = @JoinColumn(name = "FK_jobCodeTO")
+            inverseJoinColumns = @JoinColumn(name = "FK_job_codeTO")
     )
-    private Set<NormalizForTOModel> normalizForTOModelSet;
+    private List<NormalizForTOModel> normalizForTOModelSet;
 
 }
