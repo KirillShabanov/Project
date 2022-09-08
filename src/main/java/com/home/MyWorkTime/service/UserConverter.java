@@ -4,8 +4,6 @@ import com.home.MyWorkTime.dto.UsersModelDTO;
 import com.home.MyWorkTime.entity.UsersModel;
 import org.springframework.stereotype.Component;
 
-
-
 @Component
 public class UserConverter {
 

@@ -41,6 +41,11 @@ $(document).on("click", '#popup_updateUsers #button_updateUsers', async function
         "login":userLogin, "password":userPass, "level_access":userLevel_access})
     });
 
+    popup_ok.className = ('popup open');
+    setTimeout(function(){
+        popup_ok.className = ('popup close');
+    }, 2000);
+    
     showUser();
     popup_updateUsers.className = ('popup close');
     popup_users.className = ('popup open');

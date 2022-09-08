@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @NoArgsConstructor
 public class WarehouseCarService {
@@ -17,4 +19,9 @@ public class WarehouseCarService {
         WarehouseCarModel addNewCar = warehouseCarRepository.save(warehouseCarModel);
         return WarehouseCarRepository.saveWarehouseCarModel(addNewCar);
     }
+
+    public List<WarehouseCarModel> findAllNotSale() {
+        return warehouseCarRepository.findAllNotSale();
+    }
+
 }

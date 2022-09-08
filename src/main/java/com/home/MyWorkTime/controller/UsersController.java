@@ -7,7 +7,6 @@ import com.home.MyWorkTime.service.UserConverter;
 import com.home.MyWorkTime.service.UsersService;
 import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

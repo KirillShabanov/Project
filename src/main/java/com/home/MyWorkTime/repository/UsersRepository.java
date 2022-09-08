@@ -15,5 +15,4 @@ public interface UsersRepository extends JpaRepository<UsersModel, Long> {
     @NotNull
     Optional<UsersModel> findById (@NotNull Long id);
 
-
 }

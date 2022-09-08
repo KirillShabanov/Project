@@ -14,7 +14,6 @@ function showUser(){
             '</tr>\n';
             for (let i=0; i<users.length; i++){
                 var user = users[i];
-                //console.log(user);
                 userTable = userTable + '\n' +
                 '<tr><td>'+user.id+'</td>\n' +
                 '<td>'+user.name+'</td>\n' +
