@@ -27,4 +27,10 @@ public class WarehouseCarController {
         return warehouseCarService.findAllNotSale();
     }
 
+    @GetMapping(value = "/{findAllNotSaleNotNull}")
+    public List<WarehouseCarModel> findAllNotSaleNotNull(@PathVariable String findAllNotSaleNotNull){
+        System.out.println("OK");
+        return warehouseCarService.findAllNotSaleNotNull(findAllNotSaleNotNull);
+    }
+
 }

@@ -1,0 +1,45 @@
+.formForSearchCheckedCar {
+    border-radius: 5px;
+  }
+  
+  .form__field_formForSearchCheckedCar {
+    margin-bottom: 10px;
+    float: left;
+  }
+  
+  .form__error {
+    color: red;
+    text-align: left;
+    font-size: 12px;
+    display: block;
+    margin-top: 3px;
+    display: none;
+  }
+  
+  .formForSearchCheckedCar input {
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  
+  input:valid:not(:placeholder-shown) {
+    border-color: green;
+  }
+  
+  input:invalid:not(:placeholder-shown) {
+    border-color: red;
+  }
+  input:invalid:not(:placeholder-shown) + .form__error {
+    display: block;
+  }
+
+  ._btnSearch {
+    margin-right: 200px; 
+    margin-bottom: 10px;
+    margin-top: 0ch; 
+    float: right;
+  }
+
+
+  
