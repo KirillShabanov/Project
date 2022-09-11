@@ -11,6 +11,6 @@ import java.util.List;
 public interface WarehouseCarVinRepository extends JpaRepository<WarehouseCarModel, String> {
 
     @Transactional
-    @Query(value = "SELECT * FROM warehouse_car WHERE date_sale IS null AND vin = :findAllNotSaleNotNull ", nativeQuery = true)
+    @Query(value = "SELECT * FROM warehouse_car WHERE date_sale IS null AND vin LIKE %:findAllNotSaleNotNull% ", nativeQuery = true)
     List<WarehouseCarModel> findAllNotSaleNotNull(String findAllNotSaleNotNull);
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/warehouse_car")
 @AllArgsConstructor
@@ -29,8 +30,6 @@ public class WarehouseCarController {
 
     @GetMapping(value = "/{findAllNotSaleNotNull}")
     public List<WarehouseCarModel> findAllNotSaleNotNull(@PathVariable String findAllNotSaleNotNull){
-        System.out.println("OK");
         return warehouseCarService.findAllNotSaleNotNull(findAllNotSaleNotNull);
     }
-
 }
