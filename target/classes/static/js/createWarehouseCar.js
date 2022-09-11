@@ -31,7 +31,7 @@ function createWarehouseCar(){
     xmlhttp.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200){
             clearForm();
-            sendMail(carVin, carDateArrival);                   //Отправка Email уведомления
+            sendMail(carVin, carDateArrival); //Отправка Email уведомления                   
         }
     };
     

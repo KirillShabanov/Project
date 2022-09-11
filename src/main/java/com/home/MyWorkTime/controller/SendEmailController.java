@@ -2,7 +2,6 @@ package com.home.MyWorkTime.controller;
 
 import com.home.MyWorkTime.entity.SendEmailModel;
 import com.home.MyWorkTime.service.SendEmailService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,8 +17,12 @@ import java.util.Map;
 @RestController
 public class SendEmailController {
 
-    @Autowired
+    final
     SendEmailService sendEmailService;
+
+    public SendEmailController(SendEmailService sendEmailService) {
+        this.sendEmailService = sendEmailService;
+    }
 
     @RequestMapping("/text")
     public String sendText(Model model){

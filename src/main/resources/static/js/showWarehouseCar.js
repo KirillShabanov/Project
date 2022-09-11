@@ -12,7 +12,6 @@ function showWarehouseCarIsSearchNotNull(){
             '<td>60 дней</td>' +
             '<td>90 дней</td>' +
             '<td>120 дней</td>' +
-            '<td>Действия</td>' +
             '</tr>\n';
             for (let i=0; i<newCarsKia.length; i++){
                 var newCarKia = newCarsKia[i];
@@ -24,8 +23,7 @@ function showWarehouseCarIsSearchNotNull(){
                 '<td>'+newCarKia.insp_30day+'</td>\n' +
                 '<td>'+newCarKia.insp_60day+'</td>\n' +
                 '<td>'+newCarKia.insp_90day+'</td>\n' +
-                '<td>'+newCarKia.insp_120day+'</td>\n' +
-                '<td><button type="submit" class="btn_user" style="margin: 0px; padding: 0px; width: 105px" onclick="****('+newCarKia.id+')" >Рег. проверки</button></td></tr>';
+                '<td>'+newCarKia.insp_120day+'</td></tr>';
                 document.getElementById("warehouseCarList").innerHTML = newCarsKiaTable;
             }
         }
@@ -71,7 +69,6 @@ let findAllNotSaleNotNull = document.querySelector('floatingVINForSearchCheckedC
 
 floatingVINForSearchCheckedCar.oninput = function() {
     findAllNotSaleNotNull = floatingVINForSearchCheckedCar.value;
-    document.getElementById('result').innerHTML = floatingVINForSearchCheckedCar.value;
     console.log(findAllNotSaleNotNull);
 
     if (findAllNotSaleNotNull == ""){
