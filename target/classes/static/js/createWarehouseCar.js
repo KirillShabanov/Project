@@ -1,6 +1,18 @@
 let popup_noOk = document.getElementById("popup_noOk");
 let popup_ok = document.getElementById("popup_ok");
 
+
+function clearForm(){
+    document.getElementById("floatingVIN").value = "";
+    document.getElementById("floatingAlterVin").value = "";
+    document.getElementById("floatingDateRelease").value = "";
+    document.getElementById("floatingDateArrival").value = "";
+}
+
+async function sendMail(carVin, carDateArrival){
+   fetch(`http://localhost:8080/newCar${carVin}&${carDateArrival}`)
+}
+
 function createWarehouseCar(){
     var carVin = document.getElementById("floatingVIN").value;
     var carAlterVin = document.getElementById("floatingAlterVin").value;
@@ -36,16 +48,6 @@ function createWarehouseCar(){
     };
     
 };
-function clearForm(){
-    document.getElementById("floatingVIN").value = "";
-    document.getElementById("floatingAlterVin").value = "";
-    document.getElementById("floatingDateRelease").value = "";
-    document.getElementById("floatingDateArrival").value = "";
-}
-
-async function sendMail(carVin, carDateArrival){
-   fetch(`http://localhost:8080/newCar${carVin}&${carDateArrival}`)
-}
 
 
 
