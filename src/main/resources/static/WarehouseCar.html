@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="css/popupOwner.css">
     <link rel="stylesheet" href="css/forms.css">
     <link rel="stylesheet" href="css/formForSearchCheckedCar.css">
+    <script src="js/xlsx.js"></script>
+    <script src="js/xlsx.full.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="js/jquery.js"></script>
     <title>WarehouseCar</title>
 </head>
@@ -51,7 +54,7 @@
                         Зарегестрировать новый автомобиль
                     </a>
                     <a href="#popup_registrationCheck" class="header__nav popup-link">
-                        Зарегестрировать новый автомобиль
+                        Зарегестрировать проверки
                     </a>
                     <a href="" class="header__nav popup-link">
                         Зарегестрировать установленное дополнительное оборудование
@@ -67,7 +70,6 @@
     <div id="popup_addWarehouseCar" class="popup">
         <div class="popup__body">
             <div class="popup__content">
-                <a href="#popup_warehouseCar" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
                 <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
                 <div class="popup__title">Заполните данные</div>
                 <div class="popup_addWarehouseCar">
@@ -100,7 +102,6 @@
     <div id="popup_registrationCheck" class="popup">
         <div class="popup__body">
             <div class="popup__content">
-                <a href="#popup_warehouseCar" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
                 <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
                 <div class="popup__title">Регистрация проведенных проверок</div>
                 <form action="" class="formForSearchCheckedCar">
@@ -109,7 +110,9 @@
                     </div>
                 </form>
                 <div>
-                    <button id="downloadCheckedCar_btn" onclick="downloadCheckedCar()"  class="btn_user _btnSearch" type="submit" >Загрузить пров. проверки</button>
+                    <a href="#popup_loadCheckWarehouseCar" class="header__nav popup-link">
+                        <button class="btn_user _btnSearch" type="submit" >Загрузить пров. проверки</button>
+                    </a>
                 </div>
                 <div class="popup__table">
                     <table id="warehouseCarList" class="table table-striped">
@@ -118,6 +121,27 @@
             </div>
         </div>
     </div>
+
+    <div id="popup_loadCheckWarehouseCar" class="popup">
+        <div class="popup__body">
+            <div class="popup__content">
+                <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                <div class="popup__title">Загрузка данных</div>
+                <div>
+                    <input type="file" name="files[]" id="checkedFileWarehouseCar" class="downloadCheckedCar_btn">    
+                </div>
+                <div>
+                    <button id="downloadCheckedCar_btn" class="btn_user _btnSearch" type="submit">Загрузить на сервер</button>
+                </div>
+                <table id="ckedeCarTableTable" class="table table-striped">
+                    
+                </table>
+                <div>
+                    <textarea style="width: 100%; height: 350px; " class="form-control" rows=35 cols=120 id="xlx_json"></textarea>
+                </div>  
+            </div>
+        </div>
+    </div>  
 
     <div id="popup_ok" class="popup">
         <div class="popup__body">
@@ -145,13 +169,8 @@
             </div>
         </div>
     </div>
-    
     <script src="js/showWarehouseCar.js"></script>
     <script src="js/downloadCheckedCar.js"></script>
-    <script src="js/autoForTO.js"></script>
-    <script src="js/showAuto.js"></script>
-    <script src="js/regulForTO.js"></script>
-    <script src="js/btnSearchShowTO.js"></script>
     <script src="js/createWarehouseCar.js"></script>
     <script src="js/popupUsers.js"></script>
 </body>

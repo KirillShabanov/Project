@@ -1,5 +1,53 @@
-//let downloadCheckedCar_btn = document.getElementById('downloadCheckedCar_btn');
+document.getElementById('checkedFileWarehouseCar').addEventListener('change', handleFileSelect, false);
 
-async function downloadCheckedCar(){
-    console.log('Да ты нажал меня!!!');
-}
+var ExcelToJSON = function() {
+    this.parseExcel = function(file) {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+            var data = e.target.result;
+            var workbook = XLSX.read(data, {
+              type: 'binary'
+            });
+            workbook.SheetNames.forEach(function(sheetName) {
+                // Here is your object
+                var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+                var json_object = JSON.stringify(XL_row_object);
+                console.log(JSON.parse(json_object));
+                jQuery('#xlx_json').val(json_object);
+                
+                var checkedCar = JSON.parse(json_object);
+                var ckedeCarTable = '<tr>\n' +
+                '<td>VIN</td>\n' +
+                '<td>Тип инспекции</td>\n' +
+                '<td>Период</td>\n' +
+                '<td>Дата инспекции</td>\n' +
+                '</tr>\n';
+                for (let i=0; i<checkedCar.length; i++){
+                    var checkedsCar = checkedCar[i];
+                    ckedeCarTable = ckedeCarTable + '\n' +
+                    '<tr><td>'+checkedsCar.Vin+'</td>\n' +
+                    '<td>'+checkedsCar.InspectionType+'</td>\n' +
+                    '<td>'+checkedsCar.Period+'</td>\n' +
+                    '<td>'+checkedsCar.InspectionDate+'</td></tr>';
+                    document.getElementById('ckedeCarTableTable').innerHTML = ckedeCarTable;
+                    
+                }
+              });
+            };
+
+            reader.onerror = function(ex) {
+                console.log(ex);
+              };
+        
+              reader.readAsBinaryString(file);
+            };
+};
+
+          function handleFileSelect(evt) {
+
+            var files = evt.target.files; // FileList object
+            var xl2json = new ExcelToJSON();
+            xl2json.parseExcel(files[0]);
+          }
+
