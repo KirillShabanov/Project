@@ -27,11 +27,11 @@ var ExcelToJSON = function() {
                     var checkedsCar = checkedCar[i];
                     ckedeCarTable = ckedeCarTable + '\n' +
                     '<tr><td>'+checkedsCar.Vin+'</td>\n' +
-                    '<td>'+checkedsCar.InspectionType+'</td>\n' +
+                    '<td>'+checkedsCar['Inspection Type']+'</td>\n' +
                     '<td>'+checkedsCar.Period+'</td>\n' +
-                    '<td>'+checkedsCar.InspectionDate+'</td></tr>';
-                    document.getElementById('ckedeCarTableTable').innerHTML = ckedeCarTable;
+                    '<td>'+checkedsCar['Inspection Date(Local)']+'</td></tr>';
                     
+                    document.getElementById('ckedeCarTableTable').innerHTML = ckedeCarTable;
                 }
               });
             };
