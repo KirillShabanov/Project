@@ -31,4 +31,5 @@ public class WarehouseCarService {
     public List<WarehouseCarModel> findAllNotSaleNotNull(String findAllNotSaleNotNull) {
         return warehouseCarVinRepository.findAllNotSaleNotNull(findAllNotSaleNotNull);
     }
+
 }

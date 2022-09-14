@@ -19,12 +19,11 @@
     <link rel="stylesheet" href="css/popupUsers.css">
     <link rel="stylesheet" href="css/popupTools.css">
     <link rel="stylesheet" href="css/forms.css">
-    <link rel="stylesheet" href="css/formForSearchCheckedCar.css">
     <script src="js/xlsx.js"></script>
     <script src="js/xlsx.full.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.js"></script>
-    <title>WarehouseCar</title>
+    <title>AutomobileCard</title>
 </head>
 
 <body>
@@ -49,95 +48,51 @@
         <header id="header__tools" class="header__tools lock-padding">
             <div class="header__container__tools _container">
                 <nav id="button_navigation" class="button_navigation">
-                    <a href="#popup_addWarehouseCar" class="header__nav popup-link">
-                        Зарегестрировать новый автомобиль
-                    </a>
-                    <a href="#popup_registrationCheck" class="header__nav popup-link">
-                        Зарегестрировать проверки
-                    </a>
-                    <a href="" class="header__nav popup-link">
-                        Зарегестрировать установленное дополнительное оборудование
-                    </a>
-                    <a href="" class="header__nav popup-link">
-                        Зарегестрировать продажу автомобиля
+                    <a href="#popup_addCarKiaBase" class="header__nav popup-link">
+                        Марка KIA
                     </a>
                 </nav>
             </div>
         </header>
         </div>
 
-    <div id="popup_addWarehouseCar" class="popup">
+    <div id="popup_addCarKiaBase" class="popup">
         <div class="popup__body">
             <div class="popup__content">
                 <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
                 <div class="popup__title">Заполните данные</div>
-                <div class="popup_addWarehouseCar">
+                <div class="popup_addCarKiaBase">
                     <form action="" class="form">
+                          <div id="searchCardKiaBaseNotUnique" class="searchCardKiaBaseNotUnique" style="color:red; font-size:16px; margin-left: 30px; margin-bottom:10px; visibility: hidden;">
+                              <span>Данный VIN есть в базе</span>
+                            </div>
                         <div class="form__field">
-                          <input type="vin" class="form-user" id="floatingVIN" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
+                          <input type="vin" class="form-user" id="floatingVINCarKiaBase" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
                           <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
                         </div>
                         <div class="form__field">
-                          <input type="alterVin" class="form-user" id="floatingAlterVin" placeholder="Дополнительный VIN*" minlength="0" maxlength="17" pattern="[A-Z0-9]+">
+                          <input type="alterVin" class="form-user" id="floatingAlterVinCarKiaBase" placeholder="Дополнительный VIN*" minlength="0" maxlength="17" pattern="[A-Z0-9]+">
                           <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
                         </div>
+                        <div class="form__field">
+                            <input type="regNum" class="form-user" id="floatingRegNumCarKiaBase" placeholder="Регистрационный номер*">
+                          </div>
                         <div class="form__field">
                            Дата производства
-                          <input type="date" class="form-user" id="floatingDateRelease" required>
-                          <span class="form__error">Введите дату</span>
+                          <input type="date" class="form-user" id="floatingDateReleaseCarKiaBase">
                         </div>
                         <div class="form__field">
-                           Дата поступления
-                          <input type="date" class="form-user" id="floatingDateArrival" required>
-                          <span class="form__error">Введите дату</span>
+                           Дата продажи
+                          <input type="date" class="form-user" id="floatingDateArrivalCarKiaBase">
                         </div>
-                        <button type="submit" onclick="createWarehouseCar()" class="btn_user">Добавить</button>
+                        <button type="submit" id="searchCardKiaBaseNotUniqueButton" onclick="createCarKiaBase()" class="btn_user">Добавить</button>
                       </form>
                 </div>  
             </div>
         </div>
     </div>  
     
-    <div id="popup_registrationCheck" class="popup">
-        <div class="popup__body">
-            <div class="popup__content">
-                <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
-                <div class="popup__title">Регистрация проведенных проверок</div>
-                <form action="" class="formForSearchCheckedCar">
-                    <div class="form__field_formForSearchCheckedCar">
-                        <input type="text" class="form-user" id="floatingVINForSearchCheckedCar" placeholder="VIN*" minlength="0" maxlength="17" pattern="[A-Z0-9]+" required>
-                    </div>
-                </form>
-                <div>
-                    <a href="#popup_loadCheckWarehouseCar" class="header__nav popup-link">
-                        <button class="btn_user _btnSearch" type="submit" >Загрузить пров. проверки</button>
-                    </a>
-                </div>
-                <div class="popup__table">
-                    <table id="warehouseCarList" class="table table-striped">
-                    </table>
-                </div>  
-            </div>
-        </div>
-    </div>
-
-    <div id="popup_loadCheckWarehouseCar" class="popup">
-        <div class="popup__body">
-            <div class="popup__content">
-                <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
-                <div class="popup__title">Загрузка данных</div>
-                <div>
-                    <input type="file" name="files[]" id="checkedFileWarehouseCar" class="downloadCheckedCar_btn">    
-                </div>
-                <div>
-                    <button id="downloadCheckedCar_btn" class="btn_user _btnSearch" type="submit">Загрузить на сервер</button>
-                </div>
-                <table id="ckedeCarTableTable" class="table table-striped">
-                    
-                </table>
-            </div>
-        </div>
-    </div>  
+    
 
     <div id="popup_ok" class="popup">
         <div class="popup__body">
@@ -165,9 +120,9 @@
             </div>
         </div>
     </div>
-    <script src="js/showWarehouseCar.js"></script>
-    <script src="js/downloadCheckedCar.js"></script>
-    <script src="js/createWarehouseCar.js"></script>
+    
     <script src="js/popupUsers.js"></script>
+    <script src="js/createCarKiaBase.js"></script>
+    <script src="js/searchCardKiaBase.js"></script>
 </body>
 </html>

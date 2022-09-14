@@ -9,9 +9,9 @@ function showWarehouseCarIsSearchNotNull(){
             '<td>pdi</td>\n' +
             '<td>Выдача</td>\n' +
             '<td>30 дней</td>\n' +
-            '<td>60 дней</td>' +
-            '<td>90 дней</td>' +
-            '<td>120 дней</td>' +
+            '<td>60 дней</td>\n' +
+            '<td>90 дней</td>\n' +
+            '<td>120 дней</td>\n' +
             '</tr>\n';
             for (let i=0; i<newCarsKia.length; i++){
                 var newCarKia = newCarsKia[i];

@@ -53,7 +53,7 @@ CREATE TABLE clients_card (id INTEGER PRIMARY KEY AUTOINCREMENT,
 							phone INTEGER NOT NULL);
 							
 
-CREATE TABLE automobile_card (id INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE automobile_card_kia (id INTEGER PRIMARY KEY AUTOINCREMENT,
 								vin VARCHAR(17) NOT NULL,
 								alter_vin VARCHAR(17),
 								reg_num VARCHAR(10),

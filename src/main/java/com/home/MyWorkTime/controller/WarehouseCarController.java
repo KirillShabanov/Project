@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
+
 @RestController
 @RequestMapping("/warehouse_car")
 @AllArgsConstructor
@@ -32,4 +33,5 @@ public class WarehouseCarController {
     public List<WarehouseCarModel> findAllNotSaleNotNull(@PathVariable String findAllNotSaleNotNull){
         return warehouseCarService.findAllNotSaleNotNull(findAllNotSaleNotNull);
     }
+
 }

@@ -1467,10 +1467,10 @@ INSERT INTO clients_card (client_full_name, city, address, phone) VALUES ('Фу�
 INSERT INTO clients_card (client_full_name, city, address, phone) VALUES ('Синяков Вячеслав Михайлович', 'г. Витебск', ' ул. Гагарина, д. 28, кв. 89', 375259804781);
 INSERT INTO clients_card (client_full_name, city, address, phone) VALUES ('Леошко Николай Николаевич', 'аг. Новка', ' ул. Северная, д. 27, кв. 8', 375297268183);
 
-INSERT INTO automobile_card (vin, reg_num, date_release, date_sale) VALUES ('Z94C251BANR182864', '0966 KA-2', '2022-02-04', '2022-02-19');
-INSERT INTO automobile_card (vin, reg_num, date_release, date_sale) VALUES ('Z94C251BANR182863', '6494 IT-2', '2022-02-04', '2022-02-19');
-INSERT INTO automobile_card (vin, reg_num, date_release, date_sale) VALUES ('Z94C241BBMR236347', '3133 IT-2', '2021-06-14', '2021-07-11');
-INSERT INTO automobile_card (vin, reg_num, date_release, date_sale) VALUES ('Z94C251BBMR137314', '3133 IT-2', '2021-02-20', '2021-07-02');
+INSERT INTO automobile_card_kia (vin, reg_num, date_release, date_sale) VALUES ('Z94C251BANR182864', '0966 KA-2', '2022-02-04', '2022-02-19');
+INSERT INTO automobile_card_kia (vin, reg_num, date_release, date_sale) VALUES ('Z94C251BANR182863', '6494 IT-2', '2022-02-04', '2022-02-19');
+INSERT INTO automobile_card_kia (vin, reg_num, date_release, date_sale) VALUES ('Z94C241BBMR236347', '3133 IT-2', '2021-06-14', '2021-07-11');
+INSERT INTO automobile_card_kia (vin, reg_num, date_release, date_sale) VALUES ('Z94C251BBMR137314', '3133 IT-2', '2021-02-20', '2021-07-02');
 
 INSERT INTO carOwner (FK_owner, FK_vin, FK_automobile) VALUES (1, 1, 12);
 INSERT INTO carOwner (FK_owner, FK_vin, FK_automobile) VALUES (2, 2, 12);
