@@ -14,8 +14,12 @@ import java.util.List;
 @NoArgsConstructor
 public class RegulForTOService {
 
-    @Autowired
     private RegulForTORepository regulForTORepository;
+
+    @Autowired
+    public RegulForTOService(RegulForTORepository regulForTORepository) {
+        this.regulForTORepository = regulForTORepository;
+    }
 
     public List<RegulForTOModel> findAll(){
         return regulForTORepository.findAll();

@@ -1,7 +1,6 @@
 package com.home.MyWorkTime.controller;
 
 import com.home.MyWorkTime.entity.ClientCardModel;
-import com.home.MyWorkTime.entity.RegulForTOModel;
 import com.home.MyWorkTime.service.ClientCardService;
 import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
@@ -26,10 +25,9 @@ public class ClientCardController {
         return clientCardService.findClientForPhone(phoneNum);
     }
 
-    @GetMapping(value = "/fullName/{fullName}")
-    public List<ClientCardModel> findClientForFullName(@PathVariable String fullName){
-        log.info("FullName find: " + fullName);
-        return clientCardService.findClientForFullName(fullName);
+    @GetMapping(value = "/fullName/{searchFullName}")
+    public List<ClientCardModel> findClientForFullName(@PathVariable String searchFullName){
+        return clientCardService.findClientForFullName(searchFullName);
     }
 
     @GetMapping(value = "/city/{city}")
@@ -40,7 +38,6 @@ public class ClientCardController {
 
     @PostMapping(value = "/save")
     public ClientCardModel saveClient(@RequestBody ClientCardModel clientCardModel){
-        log.info("Handling save client: " + clientCardModel);
         return clientCardService.saveClient(clientCardModel);
     }
 

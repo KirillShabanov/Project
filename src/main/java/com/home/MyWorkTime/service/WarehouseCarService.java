@@ -13,11 +13,14 @@ import java.util.List;
 @NoArgsConstructor
 public class WarehouseCarService {
     
-    @Autowired
     private WarehouseCarRepository warehouseCarRepository;
+    private WarehouseCarVinRepository warehouseCarVinRepository;
 
     @Autowired
-    private WarehouseCarVinRepository warehouseCarVinRepository;
+    public WarehouseCarService(WarehouseCarRepository warehouseCarRepository, WarehouseCarVinRepository warehouseCarVinRepository) {
+        this.warehouseCarRepository = warehouseCarRepository;
+        this.warehouseCarVinRepository = warehouseCarVinRepository;
+    }
 
     public WarehouseCarModel addNewCar(WarehouseCarModel warehouseCarModel) {
         WarehouseCarModel addNewCar = warehouseCarRepository.save(warehouseCarModel);

@@ -16,10 +16,14 @@ import java.util.Optional;
 @NoArgsConstructor
 public class AutomobileCardKiaService {
 
-    @Autowired
     private AutomobileCardKiaRepository automobileCardKiaRepository;
-    @Autowired
     private AutomobileCardKiaVinRepository automobileCardKiaVinRepository;
+
+    @Autowired
+    public AutomobileCardKiaService(AutomobileCardKiaRepository automobileCardKiaRepository, AutomobileCardKiaVinRepository automobileCardKiaVinRepository) {
+        this.automobileCardKiaRepository = automobileCardKiaRepository;
+        this.automobileCardKiaVinRepository = automobileCardKiaVinRepository;
+    }
 
     public AutomobileCardKiaModel addNewAutomobileCardKia(AutomobileCardKiaModel automobileCardKiaModel) {
         AutomobileCardKiaModel addNewAutomobileCardKia = automobileCardKiaRepository.save(automobileCardKiaModel);

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+    <style type="text/css"></style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/popupUsers.css">
+    <link rel="stylesheet" href="css/popupTools.css">
+    <script src="js/jquery.js"></script>
+    <title>PriceTO</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header id="header" class="header lock-padding">
+            <div class="header__container _container">
+                <a href="MyWorkTime.html" class="header__logo">
+                    <span class="logo_img"></span>
+                </a>
+                <nav id="button_navigation" class="button_navigation">
+                    <a href="" class="header__nav popup-link">
+                        Помощь
+                    </a>
+                    <a href="Authorization.html" class="header__nav">
+                        Выход
+                    </a>
+                </nav>
+            </div>
+        </header>
+    </div>
+    <div class="wrapper__tools">
+        <header id="header__tools" class="header__tools lock-padding">
+            <div class="header__container__tools _container">
+                <nav id="button_navigation" class="button_navigation">
+                    <a href="#popup_priceTO" class="header__nav_tools popup-link">
+                        Стоимость ТО KIA
+                    </a>
+                </nav>
+            </div>
+        </header>
+    </div>
+   
+    <div id="popup_priceTO" class="popup">
+        <div class="popup__body">
+            <div class="popup__content">
+                <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                <div class="popup__title">Стоимость ТО KIA</div>
+                <div class="priceTO_auto">
+                    <div class="form__priceTO_auto">
+                        <div class="dropdown_auto">
+                            <div id="container" class="select">
+                                Auto
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form__priceTO_auto">
+                        <div class="dropdown_auto">
+                            <div id="container2" class="select">
+                                TO
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="btn_SearchTO">
+                    <button id="btn_SearchShowTO" onclick="btnSearchShowTO()" class="btn_user" type="submit">Поиск</button>
+                </div>
+                <table id="partTable" class="table table-striped"> 
+                </table>
+                <div class="pricePart"> 
+                <h6>Итого стоимость запчастей: </h6>
+                </div>
+                <div id="pricePartTO" class="pricePartTO"></div>
+
+                <table id="jobeTable" class="table table-striped"> 
+                </table>
+                <div class="priceJob">
+                    <h6>Итого стоимость работ: </h6>
+                </div>
+                <div id="priceJobTO" class="priceJobTO"></div>
+                <div class="fullPrice">
+                    <h5>Общая стоимость: </h5>
+                </div>
+                <div id="fullPriceTO" class="fullPriceTO"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/autoForTO.js"></script>
+    <script src="js/showAuto.js"></script>
+    <script src="js/regulForTO.js"></script>
+    <script src="js/btnSearchShowTO.js"></script>
+    <script src="js/popupUsers.js"></script>
+</body>
+</html>

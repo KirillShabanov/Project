@@ -16,19 +16,23 @@ import java.util.Optional;
 @NoArgsConstructor
 public class ClientCardService {
 
-    @Autowired
     private ClientCardPhoneRepository clientCardPhoneRepository;
-    @Autowired
     private ClientCardAddressRepository clientCardAddressRepository;
-    @Autowired
     private ClientCardRepository clientCardRepository;
+
+    @Autowired
+    public ClientCardService(ClientCardPhoneRepository clientCardPhoneRepository, ClientCardAddressRepository clientCardAddressRepository, ClientCardRepository clientCardRepository) {
+        this.clientCardPhoneRepository = clientCardPhoneRepository;
+        this.clientCardAddressRepository = clientCardAddressRepository;
+        this.clientCardRepository = clientCardRepository;
+    }
 
     public List<ClientCardModel> findClientForPhone(Long phoneNum) {
         return clientCardPhoneRepository.findClientForPhone(phoneNum);
     }
 
-    public List<ClientCardModel> findClientForFullName(String fullName) {
-        return clientCardAddressRepository.findClientForFullName(fullName);
+    public List<ClientCardModel> findClientForFullName(String searchFullName) {
+        return clientCardAddressRepository.findClientForFullName(searchFullName);
     }
 
     public List<ClientCardModel> findClientForCity(String city) {

@@ -12,8 +12,12 @@ import java.util.Map;
 @NoArgsConstructor
 public class CarOwnerService {
 
-    @Autowired
     private CarOwnerVinRepository carOwnerVinRepository;
+
+    @Autowired
+    public CarOwnerService(CarOwnerVinRepository carOwnerVinRepository) {
+        this.carOwnerVinRepository = carOwnerVinRepository;
+    }
 
     public List<Map<String, String>> vinForSearchKiaBaseInputKey(String vinForSearchKiaBaseInput){
         return carOwnerVinRepository.vinForSearchKiaBaseInputKey(vinForSearchKiaBaseInput);

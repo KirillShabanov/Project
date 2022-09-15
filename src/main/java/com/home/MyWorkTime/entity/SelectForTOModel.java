@@ -35,15 +35,19 @@ public class SelectForTOModel {
 
     @JsonIgnore
     @ManyToMany (mappedBy = "autoForTOModelSet")
+    @ToString.Exclude
     private List<AutoForTOModel> autoForTOModelSet;
     @JsonIgnore
     @ManyToMany (mappedBy = "normalizForTOModelSet")
+    @ToString.Exclude
     private List<NormalizForTOModel> normalizForTOModelSet;
     @JsonIgnore
     @ManyToMany (mappedBy = "partForTOModelSet")
+    @ToString.Exclude
     private List<PartForTOModel> partForTOModelSet;
     @JsonIgnore
     @ManyToMany (mappedBy = "regulForTOModelSet")
+    @ToString.Exclude
     private List<RegulForTOModel> regulForTOModelSet;
 
 }

@@ -13,8 +13,12 @@ import java.util.Map;
 @NoArgsConstructor
 public class SelectForTOService {
 
-    @Autowired
     private SelectForTORepository selectForTORepository;
+
+    @Autowired
+    public SelectForTOService(SelectForTORepository selectForTORepository) {
+        this.selectForTORepository = selectForTORepository;
+    }
 
     public List<Map<String, String>> findTOFromKey(Long selectTO, Long selectAuto) {
         return selectForTORepository.findTOFromKey(selectTO, selectAuto);
