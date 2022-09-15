@@ -9,8 +9,8 @@ function showUser(){
             '<td>Фамилия</td>\n' +
             '<td>Логин</td>\n' +
             '<td>Пароль</td>\n' +
-            '<td>Доступ</td>' +
-            '<td>Действия</td>' +
+            '<td>Доступ</td>\n' +
+            '<td>Действия</td>\n' +
             '</tr>\n';
             for (let i=0; i<users.length; i++){
                 var user = users[i];
@@ -20,7 +20,7 @@ function showUser(){
                 '<td>'+user.surname+'</td>\n' +
                 '<td>'+user.login+'</td>\n' +
                 '<td>'+user.password+'</td>\n' +
-                '<td>'+user.level_access+'</td>' +
+                '<td>'+user.level_access+'</td>\n' +
                 '<td><a class="button" style="margin: 5px" onclick="updateUser('+user.id+')" type="button" ><i class="fa fa-pencil aria-hidden=true" style="color: black"></i></a>\n' +
                 
                 '<a class="button" style="margin: 5px" onclick="deleteUser('+user.id+')" type="button"><i class="fa fa-trash" style="color: black"></i></a></td></tr>';

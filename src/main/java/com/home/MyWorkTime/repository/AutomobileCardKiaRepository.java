@@ -7,5 +7,6 @@ public interface AutomobileCardKiaRepository extends JpaRepository<AutomobileCar
 
     static AutomobileCardKiaModel saveAutomobileCardKiaModel(AutomobileCardKiaModel automobileCardKiaModel){
         return automobileCardKiaModel;
-    };
+    }
+
 }

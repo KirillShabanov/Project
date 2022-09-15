@@ -10,11 +10,11 @@ function clearForm(){
 }
 
 function createCarKiaBase(){
-    var carKiaVin = document.getElementById("floatingVINCarKiaBase").value;
-    var carKiaAlterVin = document.getElementById("floatingAlterVinCarKiaBase").value;
-    var carKiaRegNum = document.getElementById("floatingRegNumCarKiaBase").value;
-    var carKiaDateRelease = document.getElementById("floatingDateReleaseCarKiaBase").value;
-    var carKiaDateSale = document.getElementById("floatingDateArrivalCarKiaBase").value;
+    var carKiaVin = document.getElementById("floatingVINCarKiaBaseAdd").value;
+    var carKiaAlterVin = document.getElementById("floatingAlterVinCarKiaBaseAdd").value;
+    var carKiaRegNum = document.getElementById("floatingRegNumCarKiaBaseAdd").value;
+    var carKiaDateRelease = document.getElementById("floatingDateReleaseCarKiaBaseAdd").value;
+    var carKiaDateSale = document.getElementById("floatingDateArrivalCarKiaBaseAdd").value;
     
    
     if (carKiaVin.length == 17){

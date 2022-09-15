@@ -22,4 +22,6 @@ public class CarOwnerController {
     public List<Map<String, String>> vinForSearchKiaBaseInputKey(@PathVariable String vinForSearchKiaBaseInput){
         return carOwnerService.vinForSearchKiaBaseInputKey(vinForSearchKiaBaseInput);
     }
+
+
 }

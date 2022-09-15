@@ -17,6 +17,11 @@ LEFT JOIN clientsСard ON carOwner.FK_owner = clientsСard.id
 LEFT JOIN automobileCard ON carOwner.FK_vin = automobileCard.id
 LEFT JOIN auto ON carOwner.FK_automobile = auto.id;
 
+SELECT vin, reg_num, client_full_name, phone FROM car_owner
+LEFT JOIN clients_card ON car_owner.FK_owner = clients_card.id
+LEFT JOIN automobile_card_kia ON car_owner.FK_vin = automobile_card_kia.id
+WHERE vin LIKE 'Z94C251BANR182864';
+
 
 SELECT clientFullName, vin, automobile, modification, DQ010, DQ020, DQ030, DQ040 FROM carOwner
 LEFT JOIN clientsСard ON carOwner.FK_owner = clientsСard.id

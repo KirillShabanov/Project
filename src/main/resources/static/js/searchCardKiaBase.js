@@ -1,11 +1,11 @@
 // Поиск автомобиля при добавлении
-let searchCardKiaBaseInput = document.querySelector('floatingVINCarKiaBase');
+let searchCardKiaBaseInput = document.querySelector('floatingVINCarKiaBaseAdd');
 let searchCardKiaBaseNotUnique = document.getElementById('searchCardKiaBaseNotUnique');
 let searchCardKiaBaseNotUniqueButton = document.getElementById('searchCardKiaBaseNotUniqueButton');
 
-let floatingVINCarKiaBase;
-floatingVINCarKiaBase.oninput = function(){
-    searchCardKiaBaseInput = floatingVINCarKiaBase.value;
+floatingVINCarKiaBaseAdd.oninput = function(){
+    searchCardKiaBaseInput = floatingVINCarKiaBaseAdd.value;
+    
     
     if(searchCardKiaBaseInput !== "" && searchCardKiaBaseInput.length > 16){
         searchCardKiaBase();
@@ -43,10 +43,10 @@ function searchCardKiaBase(){
 let floatingVINForSearchKiaBase = document.getElementById('floatingVINForSearchKiaBase');
 
 floatingVINForSearchKiaBase.oninput = function(){
-    vinForSearchKiaBaseInput = floatingVINForSearchKiaBase.value;
-    if(vinForSearchKiaBaseInput !== "" ){
+    searchCardKiaBaseInput = floatingVINForSearchKiaBase.value;
+    if(searchCardKiaBaseInput !== "" ){
         vinForSearchKiaBase();
-    } else if (vinForSearchKiaBaseInput === ""){
+    } else if (searchCardKiaBaseInput === ""){
         vinForSearchKiaBaseEmpty();
     }
 };
@@ -55,9 +55,7 @@ function vinForSearchKiaBaseEmpty(){
     document.getElementById("searchKiaBaseList").innerHTML = '<tr>\n' +
                 '<td>VIN</td>\n' +
                 '<td>Госс.номер</td>\n' +
-                '<td>ФИО владельца</td>\n' +
-                '<td>Номер телефона</td>\n' +
-                '<td>Действия</td>\n' +
+                '<td>Изменить</td>\n' +
                 '</tr>\n';
 }
 
@@ -69,9 +67,7 @@ function vinForSearchKiaBase(){
             var searchKiaBase = '<tr>\n' +
             '<td>VIN</td>\n' +
             '<td>Госс.номер</td>\n' +
-            '<td>ФИО владельца</td>\n' +
-            '<td>Номер телефона</td>\n' +
-            '<td>Действия</td>\n' +
+            '<td>Изменить</td>\n' +
             '</tr>\n';
             if (vinForKiaBase.length === 0){
                 vinForSearchKiaBaseEmpty();
@@ -82,16 +78,14 @@ function vinForSearchKiaBase(){
                     searchKiaBase = searchKiaBase + '\n' +
                     '<tr><td>'+findKiaFromBase.vin+'</td>\n' +
                     '<td>'+findKiaFromBase.reg_num+'</td>\n' +
-                    '<td>'+findKiaFromBase.client_full_name+'</td>\n' +
-                    '<td>'+findKiaFromBase.phone+'</td>\n' +
-                    '<td><a class="button" style="margin: 5px" onclick="updateUser('+findKiaFromBase.id+')" type="button" ><i class="fa fa-pencil aria-hidden=true" style="color: black"></i></a></td></tr>';  
+                    '<td><a class="button" style="margin: 5px" onclick="updateKiaCarFromBase('+findKiaFromBase.id+')" type="button" ><i class="fa fa-pencil aria-hidden=true" style="color: black"></i></a></td></tr>';  
                     
                     document.getElementById("searchKiaBaseList").innerHTML = searchKiaBase;
                 }
             }
         }
     };
-    xhttp.open("GET",` http://localhost:8080/car_owner/${vinForSearchKiaBaseInput}`, true);
+    xhttp.open("GET",` http://localhost:8080/automobile_card_kia/${searchCardKiaBaseInput}`, true);
     xhttp.send();
 }
 

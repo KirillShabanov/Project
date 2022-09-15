@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 
 @Service
 @NoArgsConstructor
@@ -27,4 +29,9 @@ public class AutomobileCardKiaService {
     public List<AutomobileCardKiaModel> searchCardKiaBase(String searchCardKiaBaseInput) {
         return automobileCardKiaVinRepository.searchCardKiaBase(searchCardKiaBaseInput);
     }
+
+    public Optional<AutomobileCardKiaModel> findById(Long id) {
+        return automobileCardKiaRepository.findById(id);
+    }
+
 }

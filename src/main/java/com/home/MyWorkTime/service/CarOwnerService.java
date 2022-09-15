@@ -18,4 +18,5 @@ public class CarOwnerService {
     public List<Map<String, String>> vinForSearchKiaBaseInputKey(String vinForSearchKiaBaseInput){
         return carOwnerVinRepository.vinForSearchKiaBaseInputKey(vinForSearchKiaBaseInput);
     }
+
 }
