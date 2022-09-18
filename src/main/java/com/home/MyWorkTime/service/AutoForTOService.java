@@ -12,8 +12,12 @@ import java.util.List;
 @NoArgsConstructor
 public class AutoForTOService {
 
-    @Autowired
     private AutoForTORepository autoForTORepository;
+
+    @Autowired
+    public AutoForTOService(AutoForTORepository autoForTORepository) {
+        this.autoForTORepository = autoForTORepository;
+    }
 
     public List<AutoForTOModel> findAll(){
         return autoForTORepository.findAll();
