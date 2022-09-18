@@ -14,7 +14,7 @@ function showAuto(){
                 autoTable = autoTable + '\n' +
                 '<tr><td>'+auto.id+'</td>\n' +
                 '<td>'+auto.automobile+'</td>\n' +
-                '<td>'+auto.modification+'</td>\n';
+                '<td>'+auto.modification+'</td></tr>';
                 //document.getElementById("autoList").innerHTML = autoTable;
             }
         }

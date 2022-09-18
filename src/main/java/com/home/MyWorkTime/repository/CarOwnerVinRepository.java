@@ -12,9 +12,10 @@ import java.util.Map;
 public interface CarOwnerVinRepository extends JpaRepository<CarOwnerModel, String> {
 
     @Transactional
-    @Query(value = "SELECT vin, reg_num, client_full_name, phone FROM car_owner " +
+    @Query(value = "SELECT car_owner.id, vin, reg_num, client_full_name, phone FROM car_owner " +
             "LEFT JOIN clients_card ON car_owner.FK_owner = clients_card.id " +
             "LEFT JOIN automobile_card_kia ON car_owner.FK_vin = automobile_card_kia.id " +
             "WHERE vin LIKE %:vinForSearchKiaBaseInput% ", nativeQuery = true)
     List<Map<String,String>> vinForSearchKiaBaseInputKey(@Param("vinForSearchKiaBaseInput") String vinForSearchKiaBaseInput);
+
 }

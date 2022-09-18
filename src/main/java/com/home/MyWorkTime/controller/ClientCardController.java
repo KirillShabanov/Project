@@ -43,7 +43,6 @@ public class ClientCardController {
 
     @GetMapping("/findById/{id}")
     public Optional<ClientCardModel> findById(@PathVariable Long id){
-        log.info("Handling find by id client request: " + id);
         return clientCardService.findById(id);
     }
 
@@ -51,11 +50,14 @@ public class ClientCardController {
     @PutMapping(value = "/{id}")
     Optional<ClientCardModel> updateClient(@RequestBody ClientCardModel newClientCardModel,
                                            @PathVariable Long id){
-        return clientCardService.findById(id).map(clientCardModel -> {
+        return clientCardService.findById(id)
+                .map(clientCardModel -> {
             clientCardModel.setClient_full_name(newClientCardModel.getClient_full_name());
             clientCardModel.setCity(newClientCardModel.getCity());
             clientCardModel.setAddress(newClientCardModel.getAddress());
             clientCardModel.setPhone(newClientCardModel.getPhone());
+            clientCardModel.setBirthday(newClientCardModel.getBirthday());
+            clientCardModel = clientCardService.saveClient(newClientCardModel);
             return clientCardModel;
         });
     }
@@ -69,7 +71,6 @@ public class ClientCardController {
 
     @GetMapping("/findAllClients")
     public List<ClientCardModel> findAllClients(){
-        log.info("Handling find all users request");
         return clientCardService.findAll();
     }
 }

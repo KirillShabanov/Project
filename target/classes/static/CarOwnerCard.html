@@ -49,7 +49,10 @@
             <div class="header__container__tools _container">
                 <nav id="button_navigation" class="button_navigation">
                     <a href="#popup_searchClientBase" class="header__nav popup-link">
-                        База всех клиентов
+                        База всех клиентов 
+                    </a>
+                    <a href="#popup_searchAllCarBase" class="header__nav popup-link">
+                        База всех автомобилей
                     </a>
                     <a href="#popup_searchKiaBase" class="header__nav popup-link">
                         Владелец KIA
@@ -85,6 +88,110 @@
                 </div>
             </div>
         </div>
+
+
+        <div id="popup_searchAllCarBase" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">База автомобилей</div>
+                    <div class="popup_searchAllCarBase">
+                        <div class="popup_searchClientBase header__nav popup-link" href="#popup_addAutoAllCarBase">
+                            <a id="button__addAutoAllCarBase" class="button" type="button">
+                                <i class="fa fa-plus" style="color: black">
+                                <i class="fa fa-user" style="color: black">   
+                                </i></i>
+                                </a>
+                        </div>
+                        <form action="" class="formClientBase">
+                            <div class="form__field">
+                                <input type="text" class="form-user" id="vinForSearchOwner" placeholder="VIN*"  pattern="^[A-Z0-9]+$" required>
+                                <span class="form__error">Это поле должно содержать латинские буквы и цифры</span>
+                            </div>
+                        </form>
+                        <div class="popup__table">
+                            <table id="searchOwnerBaseList" class="table table-striped">
+                            </table>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div id="popup_addAutoAllCarBase" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#popup_searchAllCarBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Добавить нового владельца</div>
+                    <div class="popup_addAutoAllCarBase">
+                        <form action="" class="formClientBase">
+                            <div class="priceTO_auto">
+                                <div class="form__priceTO_auto">
+                                    <div class="dropdown_auto">
+                                        <div id="container" class="select">
+                                            Марка автомобиля
+                                        </div>
+                                    </div>
+                                </div>                          
+                            </div>
+                                <div class="noOkSearch" >
+                                    <i id="notUnique" style="visibility: hidden;" class="fa fa-times" aria-hidden="true"></i>
+                                    <i id="Unique" style="visibility: hidden;" class="fa fa-check-circle" aria-hidden="true"></i>
+                                </div>
+                                <div class="form__field">
+                                    <input type="text" class="form-user" id="searchVin" minlength="0" maxlength="17" placeholder="VIN*"  pattern="^[A-Z0-9]+$" required>
+                                    <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
+                                </div>
+                                <div class="noOkSearch" style="visibility: hidden;">
+                                    <i id="notUnique1" style="visibility: hidden;" class="fa fa-times" aria-hidden="true"></i>
+                                    <i id="Unique1" style="visibility: hidden;" class="fa fa-check-circle" aria-hidden="true"></i>
+                                </div> 
+                                <div class="form__field">
+                                    <input type="text" class="form-user" id="searchClient" placeholder="ФИО*"  pattern="^[А-Яа-яЁё\s]+$" required>
+                                    <span class="form__error">Обязательно для заполнения</span>
+                                </div>
+                                <div>
+                                    <button id="notUniqueButton" style="visibility: hidden;" onclick="createOwnerCard()" class="btn_user" type="submit">Добавить</button>
+                                </div>
+                                <div>
+                                    <input type="hidden" id="idClient">
+                                    <input type="hidden" id="idCar">
+                                    <input type="hidden" id="idBrand">
+                                </div>
+                        </form>
+                    </div>  
+                </div>
+            </div>
+        </div>
+
+        <div id="popup_updateOwnerCard" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#popup_searchAllCarBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Измените данные</div>
+                    <div class="popup_updateOwnerCard">
+                        <form action="" class="formClientBase">
+                            <div class="form__field">
+                                <input type="text" class="form-user" id="IdForClientBase" placeholder="">
+                                <span id="vinUpdate" class=""></span>
+                            </div>
+                            <div class="form__field">
+                                <input type="text" class="form-user" id="searchRegNum" placeholder="Госс. номер"  pattern="^[A-Z\s0-9.,]+$" required>
+                                <span class="form__error">Обязательно для заполнения</span>
+                            </div>
+                            <div class="form__field">
+                                <input type="text" class="form-user" id="searchClient" placeholder="ФИО*"  pattern="^[А-Яа-яЁё\s]+$" required>
+                                <span class="form__error">Обязательно для заполнения</span>
+                            </div>
+                            <div class="form__field">
+                                <button id="button_updateOwnerCard" class="btn_user" type="submit">Сохранить</button>
+                            </div>
+                        </form>
+                    </div>  
+                </div>
+            </div>
+        </div>      
         
         <div id="popup_addClientBase" class="popup">
             <div class="popup__body">
@@ -122,6 +229,43 @@
             </div>
         </div>
 
+        <div id="popup_updateClientForName" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#popup_searchClientBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Измените данные</div>
+                    <div class="popup_updateClientForName">
+                        <form action="" class="formClientBase">
+                            <div class="form__field">
+                                <input type="hidden" class="form-user" id="IdForSearchClientBase" placeholder="">
+                                <input type="text" class="form-user" id="fullNameForSearchClientBase" placeholder="Полное имя*"  pattern="^[А-Яа-яЁё\s]+$" required>
+                                <span class="form__error">Обязательно для заполнения</span>
+                            </div>
+                            <div class="form__field">
+                                <input type="text" class="form-user" id="cityForSearchClientBase" placeholder="Город*"  pattern="^[А-Яа-яЁё\s.,]+$" required>
+                                <span class="form__error">Обязательно для заполнения</span>
+                            </div>
+                            <div class="form__field">
+                                <input type="text" class="form-user" id="addressForSearchClientBase" placeholder="Адрес*"  pattern="^[А-Яа-яЁё\s0-9.,]+$" required>
+                                <span class="form__error">Обязательно для заполнения</span>
+                            </div>
+                            <div class="form__field">
+                                <input type="phone" class="form-user" id="phoneForSearchClientBase" placeholder="Телефон*"  pattern="^[ 0-9]+$" required>
+                                <span class="form__error">Только цифры</span>
+                            </div>
+                            <div class="form__field">
+                                <span>Дата рождения</span>
+                                <input type="date" class="form-user" id="birthdayForSearchClientBase" required>
+                                <span class="form__error">Обязательно для заполнения</span>
+                                <button id="button_updateClientForName" class="btn_user" type="submit">Сохранить</button>
+                            </div>
+                        </form>
+                    </div>  
+                </div>
+            </div>
+        </div>      
+
         <div id="popup_searchKiaBase" class="popup">
             <div class="popup__body">
                 <div class="popup__content">
@@ -130,7 +274,7 @@
                     <div class="popup_searchKiaBase">
                         <form action="" class="formClientBase">
                             <div class="form__field">
-                                <input type="text" class="form-user" id="floatingVINForSearchKiaBase" placeholder="VIN*" minlength="0" maxlength="17" pattern="[A-Z0-9]+" required>
+                                <input type="text" class="form-user" id="floatingVINCarKiaBase" placeholder="VIN*" minlength="0" maxlength="17" pattern="[A-Z0-9]+" required>
                             </div>
                         </form>
                         <table id="searchKiaBaseList" class="table table-striped"> 
@@ -140,23 +284,7 @@
             </div>
         </div>  
 
-    <div id="popup_updateKiaCar" class="popup">
-        <div class="popup__body">
-            <div class="popup__content">
-                <a href="#popup_searchKiaBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
-                <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
-                <div class="popup__title">Измените данные</div>
-                <div class="popup_updateKiaCar">
-                    <form action="" class="formClientBase">
-                        <div class="form__field">
-                            <input type="vin" class="form-user" id="floatingVINCarKiaBase" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
-                            <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
-                          </div>
-                     </form>
-                </div>  
-            </div>
-        </div>
-    </div>      
+    
     
     
 
@@ -190,6 +318,12 @@
     <script src="js/popupUsers.js"></script>
     <script src="js/createClient.js"></script>
     <script src="js/searchClientForName.js"></script>
-    <script src="js/searchOwnerCardKiaBase.js"></script>  
+    <script src="js/updateClientForName.js"></script>
+    <script src="js/searchDataForOwnerCard.js"></script>
+    <script src="js/createOwnerCard.js"></script>
+    <script src="js/searchOwnerCardKiaBase.js"></script>
+    <script src="js/updateOwnerCard.js"></script>
+    <script src="js/searchOwnerBase.js"></script>
+     
 </body>
 </html>

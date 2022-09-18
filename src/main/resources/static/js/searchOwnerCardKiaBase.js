@@ -7,7 +7,7 @@ floatingVINCarKiaBase.oninput = function(){
     searchCardKiaBaseInput = floatingVINCarKiaBase.value;
     
     if(searchCardKiaBaseInput !== "" && searchCardKiaBaseInput.length > 16){
-        searchCardKiaBase();
+        searchOwnerCardKiaBase();
         
     } else if (searchCardKiaBaseInput === "" || searchCardKiaBaseInput.length < 17){
         searchCardKiaBaseNotUnique.style.visibility = 'hidden';
@@ -39,7 +39,7 @@ function searchOwnerCardKiaBase(){
 
 
 //Поиск автомобиля в базе
-let floatingVINForSearchKiaBase = document.getElementById('floatingVINForSearchKiaBase');
+let floatingVINForSearchKiaBase = document.getElementById('floatingVINCarKiaBase');
 
 floatingVINForSearchKiaBase.oninput = function(){
     vinForSearchKiaBaseInput = floatingVINForSearchKiaBase.value;

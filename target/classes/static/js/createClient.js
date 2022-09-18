@@ -4,8 +4,7 @@ function createClient(){
     var address = document.getElementById("addressForSearchClientBase").value;
     var phone = document.getElementById("phoneForSearchClientBase").value;
     var birthday = document.getElementById("birthdayForSearchClientBase").value;
-    console.log(birthday)
-
+    
     if (fullName.length > 0 && city.length > 0 && address.length > 0 && phone.length > 0 ) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", "http://localhost:8080/clients_card/save");

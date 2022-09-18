@@ -33,4 +33,12 @@ public class AutoForTOModel {
     )
     private List<AutoForTOModel> autoForTOModelSet;
 
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinTable(name = "car_owner",
+            joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "FK_automobile")
+    )
+    private List<AutoForTOModel> autoForOWNERModelSet;
+
 }

@@ -1,6 +1,7 @@
 package com.home.MyWorkTime.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -8,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 
 @Data
@@ -33,6 +35,8 @@ public class AutomobileCardKiaModel {
     @Column
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date_sale;
+    @Column
+    private Long FK_brand;
 
     public String date_release() {
         if (date_release == null){
@@ -50,4 +54,11 @@ public class AutomobileCardKiaModel {
         }
     }
 
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinTable(name = "car_owner",
+            joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "FK_vin")
+    )
+    private List<AutomobileCardKiaModel> automobileCardKiaModelSet;
 }

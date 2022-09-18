@@ -20,6 +20,7 @@ function createWarehouseCar(){
     var carDateArrival = document.getElementById("floatingDateArrival").value;
     var createDatePosition = new Date();
 
+    sendMail(carVin, carDateArrival); //Отправка Email уведомления  
    
     if (carVin.length == 17){
     var xmlhttp = new XMLHttpRequest();
@@ -42,8 +43,7 @@ function createWarehouseCar(){
     
     xmlhttp.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200){
-            clearForm();
-            sendMail(carVin, carDateArrival); //Отправка Email уведомления                   
+            clearForm();                 
         }
     };
     

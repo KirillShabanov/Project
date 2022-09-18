@@ -26,6 +26,7 @@ function searchFullNameInBase(){
             '<td>ФИО владельца</td>\n' +
             '<td>Город</td>\n' +
             '<td>Номер телефона</td>\n' +
+            '<td>Действия</td>\n' +
             '</tr>\n';
             if (searchFullNameJSON.length === 0){
                 searchFullNameInBaseIsEmpty();
@@ -36,13 +37,14 @@ function searchFullNameInBase(){
                     searchFullNameTable = searchFullNameTable + '\n' +
                     '<tr><td>'+searchImportJSON.client_full_name+'</td>\n' +
                     '<td>'+searchImportJSON.city+'</td>\n' +
-                    '<td>'+searchImportJSON.phone+'</td></tr>';
+                    '<td>'+searchImportJSON.phone+'</td>\n' +
+                    '<td><a class="button" style="margin: 5px" onclick="updateClientForName('+searchImportJSON.id+')" type="button" ><i class="fa fa-pencil aria-hidden=true" style="color: black"></i></a></td></tr>';
 
                     document.getElementById("searchClientBaseList").innerHTML = searchFullNameTable;
                 }
             }
         }
     };
-    xhttp.open("GET",` http://localhost:8080/clients_card/fullName/${searchFullName}`, true);
+    xhttp.open("GET", `http://localhost:8080/clients_card/fullName/${searchFullName}`, true);
     xhttp.send();
 };
