@@ -1,5 +1,5 @@
 let searchVIN = document.querySelector('searchVin'); 
-let searchCLIENT = document.querySelector('searchClient'); 
+let searchCLIENT = document.querySelector('searchClients'); 
 let notUniqueFlag = document.getElementById('notUnique');
 let uniqueFlag = document.getElementById('Unique');
 let notUniqueFlag1 = document.getElementById('notUnique1');
@@ -10,12 +10,14 @@ searchVin.oninput = function(){
     searchCardKiaBaseInput = searchVin.value;
     if (searchCardKiaBaseInput.length > 1){
         serchVinBase(); 
+        console.log(searchCardKiaBaseInput)
     } 
 };
 
-searchClient.oninput = function(){
-    searchFullName = searchClient.value;
+searchClients.oninput = function(){
+    searchFullName = searchClients.value;
     if (searchFullName.length > 1){
+        console.log(searchFullName)
         searchClientBase();
     }
 };
@@ -103,6 +105,7 @@ function searchClientBase(){
                         notUniqueButtonFlag.style.visibility = 'visible';
                         FK_owner = checks.id;
                         document.getElementById('idClient').value = FK_owner;
+                        console.log(FK_owner);
                         showJSON();
                     } 
                     if (searchFullName.length !== checks['client_full_name'].length) {
@@ -114,7 +117,7 @@ function searchClientBase(){
                 } 
             }
         };
-    xhttp.open("GET", `http://localhost:8080/clients_card/findAllClients`, true);
+    xhttp.open("GET", `http://localhost:8080/clients_card/fullName/${searchFullName}`, true);
     xhttp.send();
 };
  

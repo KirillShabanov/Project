@@ -3,6 +3,7 @@ function createOwnerCard(){
     var FKvin = document.getElementById("idCar").value;
     var FKbrand = document.getElementById("idBrand").value;
     var createDatePosition = new Date();
+    console.log(FKowner)
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", "http://localhost:8080/car_owner/saveKia");

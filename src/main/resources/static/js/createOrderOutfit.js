@@ -100,7 +100,11 @@ function createOrderOutfit(){
     var categoryRep = $("#showCategorys").find(":selected").text();
     var createDate = new Date();
 
-    console.log(JSON.stringify({"num_order":numOrder, "date_order":dateRepair, "category":categoryRep,
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "http://localhost:8080/order_outfit/addOrderOutfit");
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+    xmlhttp.send(JSON.stringify({"num_order":numOrder, "date_order":dateRepair, "category":categoryRep,
                                 "vin":vin, "mileage":mileage, "reg_num":regNum, "client_name":fullNameClient,
                                 "master_receiver_name":masterName, "create_date_position":createDate}));
+
 };
