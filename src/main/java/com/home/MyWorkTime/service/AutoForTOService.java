@@ -3,11 +3,14 @@ package com.home.MyWorkTime.service;
 import com.home.MyWorkTime.entity.AutoForTOModel;
 import com.home.MyWorkTime.repository.AutoForTORepository;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 @NoArgsConstructor
 public class AutoForTOService {
@@ -26,4 +29,5 @@ public class AutoForTOService {
     public AutoForTOModel findById(Integer id){
         return autoForTORepository.findById(id).get();
     }
+
 }

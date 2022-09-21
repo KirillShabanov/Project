@@ -62,6 +62,10 @@ public class OrderOutfitModel {
     @Column
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate create_date_position;
+    @Column
+    private String status_1;
+    @Column
+    private String status_2;
 
     public String getDate_order() {
         if (date_order == null){

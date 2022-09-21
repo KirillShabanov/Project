@@ -9,9 +9,11 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 
-import javax.mail.MessagingException;
+import javax.mail.*;
 import javax.mail.internet.MimeMessage;
 import java.nio.charset.StandardCharsets;
+
+
 
 @Service
 @RequiredArgsConstructor
@@ -44,4 +46,5 @@ public class SendEmailService {
         helper.setText(html, true);
         javaMailSender.send(message);
     }
+
 }
