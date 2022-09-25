@@ -17,8 +17,8 @@ public class CategoryRepairController {
 
     private final CategoryRepairService categoryRepairService;
 
-    @GetMapping(value = "/categoryRepair")
-    public List<CategoryRepairModel> findAllCategory(){
-        return categoryRepairService.findAllCategory();
+    @GetMapping(value = "/{categoryRepair}")
+    public List<CategoryRepairModel> findAllCategory(@PathVariable String categoryRepair){
+        return categoryRepairService.findAllCategory(categoryRepair);
     }
 }

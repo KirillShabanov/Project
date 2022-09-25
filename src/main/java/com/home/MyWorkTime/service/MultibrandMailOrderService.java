@@ -1,9 +1,13 @@
 package com.home.MyWorkTime.service;
 
-import com.home.MyWorkTime.entity.KiaMailOrderModel;
-import com.home.MyWorkTime.repository.KiaMailOrderRepository;
+import com.home.MyWorkTime.entity.MultibrandMailOrderModel;
+import com.home.MyWorkTime.entity.SkodaMailOrderModel;
+import com.home.MyWorkTime.repository.MultibrandMailOrderRepository;
+import com.home.MyWorkTime.repository.SkodaMailOrderRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -11,33 +15,33 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import javax.mail.*;
+import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
-
 
 
 @Slf4j
 @Service
-public class KiaMailOrderService {
+public class MultibrandMailOrderService {
 
-    private final KiaMailOrderRepository kiaMailOrderRepository;
+    private final MultibrandMailOrderRepository multibrandMailOrderRepository;
     private final JavaMailSender javaMailSender;
 
     @Autowired
-    public KiaMailOrderService(KiaMailOrderRepository kiaMailOrderRepository, JavaMailSender javaMailSender) {
-        this.kiaMailOrderRepository = kiaMailOrderRepository;
+    public MultibrandMailOrderService(MultibrandMailOrderRepository multibrandMailOrderRepository, JavaMailSender javaMailSender) {
+        this.multibrandMailOrderRepository = multibrandMailOrderRepository;
         this.javaMailSender = javaMailSender;
     }
 
     @Scheduled(cron = "2 * 20 * * *")
-    public void createExcelKiaCall() {
-        List<KiaMailOrderModel> firstCall = kiaMailOrderRepository.getFirstCall();
+    public void createExcelMultibrandCall() {
+        List<MultibrandMailOrderModel> firstCall = multibrandMailOrderRepository.getFirstCall();
 
         try {
             // Создают Excel файл
-            String filenamePost = "C:/Users/User/Desktop/MyWorkTime/MyWorkTime/src/main/resources/exportData/feedBack/firstCallKia.xls";
+            String filenamePost = "C:/Users/User/Desktop/MyWorkTime/MyWorkTime/src/main/resources/exportData/feedBack/firstCallMultibrand.xls";
             HSSFWorkbook workbookFirstCall = new HSSFWorkbook();
             HSSFSheet sheetFirstCall = workbookFirstCall.createSheet("ПостСервисныйОбзвон");
 
@@ -75,21 +79,23 @@ public class KiaMailOrderService {
             workbookFirstCall.write(fileOutPost);
             fileOutPost.close();
             //Отправка на почту
-            sendHtmlMessageKiaFirstCall(filenamePost);
-            System.out.println("ПостСервисныйОбзвон создан!");
+            sendHtmlMessageMultibrandFirstCall(filenamePost);
         }   catch ( Exception ex ) {
             System.out.println("Бяда!");
         }
+
+
+
     }
     @Scheduled(cron = "1 * 20 * * *")
-    public void createExcelNPSKiaCall(){
-        List<KiaMailOrderModel> npsCall = kiaMailOrderRepository.getNPSCall();
+    public void createExcelNPSMultibrandCall(){
+        List<MultibrandMailOrderModel> npsCall = multibrandMailOrderRepository.getNPSCall();
 
         try {
             // Создают Excel файл
-            String filenameNps = "C:/Users/User/Desktop/MyWorkTime/MyWorkTime/src/main/resources/exportData/feedBack/NPSkia.xls";
+            String filenameNps = "C:/Users/User/Desktop/MyWorkTime/MyWorkTime/src/main/resources/exportData/feedBack/NPSmultibrand.xls";
             HSSFWorkbook workbookNPS = new HSSFWorkbook();
-            HSSFSheet sheetNPS = workbookNPS.createSheet("NPS-KIA");
+            HSSFSheet sheetNPS = workbookNPS.createSheet("NPS-Multibrand");
 
             //Шапка
             HSSFRow rowheadNPS = sheetNPS.createRow((short)0);
@@ -99,34 +105,9 @@ public class KiaMailOrderService {
             rowheadNPS.createCell(3).setCellValue("Телефон");
             rowheadNPS.createCell(4).setCellValue("ФИО");
             rowheadNPS.createCell(5).setCellValue("BQ010");
-            rowheadNPS.createCell(6).setCellValue("BQ020");
-            rowheadNPS.createCell(7).setCellValue("BQ030");
-            rowheadNPS.createCell(8).setCellValue("BQ030 Прим.");
-            rowheadNPS.createCell(9).setCellValue("BQ040");
-            rowheadNPS.createCell(10).setCellValue("BQ050");
-            rowheadNPS.createCell(11).setCellValue("BQ050 Прим.");
-            rowheadNPS.createCell(12).setCellValue("BQ060");
-            rowheadNPS.createCell(13).setCellValue("BQ070");
-            rowheadNPS.createCell(14).setCellValue("BQ080");
-            rowheadNPS.createCell(15).setCellValue("BQ080 Прим.");
-            rowheadNPS.createCell(16).setCellValue("SQ020");
-            rowheadNPS.createCell(17).setCellValue("SQ030");
-            rowheadNPS.createCell(18).setCellValue("SQ040");
-            rowheadNPS.createCell(19).setCellValue("SQ050");
-            rowheadNPS.createCell(20).setCellValue("SQ060");
-            rowheadNPS.createCell(21).setCellValue("SQ070");
-            rowheadNPS.createCell(22).setCellValue("SQ080");
-            rowheadNPS.createCell(23).setCellValue("SQ090");
-            rowheadNPS.createCell(24).setCellValue("SQ110");
-            rowheadNPS.createCell(25).setCellValue("SQ120");
-            rowheadNPS.createCell(26).setCellValue("SQ130");
-            rowheadNPS.createCell(27).setCellValue("SQ140");
-            rowheadNPS.createCell(28).setCellValue("DQ010");
-            rowheadNPS.createCell(29).setCellValue("DQ020");
-            rowheadNPS.createCell(30).setCellValue("DQ030");
-            rowheadNPS.createCell(31).setCellValue("DQ040");
-            rowheadNPS.createCell(32).setCellValue("Дата звонка");
-            rowheadNPS.createCell(33).setCellValue("ИФ Администратора");
+
+            rowheadNPS.createCell(6).setCellValue("Дата звонка");
+            rowheadNPS.createCell(7).setCellValue("ИФ Администратора");
 
             for (int i=0; i< npsCall.size(); i++) {
                 //Строки
@@ -141,29 +122,29 @@ public class KiaMailOrderService {
                 sheetNPS.autoSizeColumn(2);
                 sheetNPS.autoSizeColumn(3);
                 sheetNPS.autoSizeColumn(4);
-                sheetNPS.autoSizeColumn(33);
+                sheetNPS.autoSizeColumn(7);
 
             }
             //Запись файла
             FileOutputStream fileOutNps = new FileOutputStream(filenameNps);
             workbookNPS.write(fileOutNps);
             fileOutNps.close();
-            sendHtmlMessageKiaNpsCall(filenameNps);
-            System.out.println("NPS-KIA создан!");
+            sendHtmlMessageMultibrandNpsCall(filenameNps);
         }   catch ( Exception ex ) {
-            System.out.println("Бяда!");
+            System.out.println("NPS Skoda не создан!");
         }
     }
 
-    private void sendHtmlMessageKiaFirstCall(String filenamePost) throws MessagingException {
+    private void sendHtmlMessageMultibrandFirstCall(String filenamePost) throws MessagingException {
 
         MimeMessage messageFirstCall = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(messageFirstCall, true, "UTF-8");
         helper.setFrom("info@vitautocity.by");
-        helper.setTo("i.komlev@vitautocity.by");  //-получатель
-        helper.setTo("t.trutchenko@vitautocity.by");
+        helper.setTo("i.belyi@vitautocity.by");  //-получатель
+        helper.setTo("stoliarov@vitautocity.by");  //-копия
+        helper.setTo("timofeev@vitautocity.by");  //-копия
         helper.setCc("k.shabanov@vitautocity.by");  //-копия
-        helper.setSubject("Пост сервисный обзвон клиентов KIA");
+        helper.setSubject("Пост сервисный обзвон клиентов Skoda");
         helper.setText("""
                 Добрый день!
 
@@ -172,18 +153,18 @@ public class KiaMailOrderService {
 
 
         FileSystemResource fileFirstCall = new FileSystemResource(new File(filenamePost));
-        helper.addAttachment("firstCallKia.xls", fileFirstCall);
+        helper.addAttachment("firstCallMultibrand.xls", fileFirstCall);
         javaMailSender.send(messageFirstCall);
     }
 
-    private void sendHtmlMessageKiaNpsCall(String filenameNps) throws MessagingException {
+    private void sendHtmlMessageMultibrandNpsCall(String filenameNps) throws MessagingException {
 
         MimeMessage messageNpsCall = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(messageNpsCall, true, "UTF-8");
         helper.setFrom("info@vitautocity.by");
         helper.setTo("administator@vitautocity.by"); //-получатель
         helper.setCc("k.shabanov@vitautocity.by");  //-копия
-        helper.setSubject("NPS KIA");
+        helper.setSubject("NPS Multibrand");
         helper.setText("""
                 Добрый день!
 
@@ -193,7 +174,7 @@ public class KiaMailOrderService {
 
 
         FileSystemResource fileNpsCall = new FileSystemResource(new File(filenameNps));
-        helper.addAttachment("NPSkia.xls", fileNpsCall);
+        helper.addAttachment("NPSmultibrand.xls", fileNpsCall);
         javaMailSender.send(messageNpsCall);
     }
 }

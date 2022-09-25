@@ -19,7 +19,7 @@ public class CategoryRepairService {
         this.categoryRepairRepository = categoryRepairRepository;
     }
 
-    public List<CategoryRepairModel> findAllCategory() {
-        return categoryRepairRepository.findAll();
+    public List<CategoryRepairModel> findAllCategory(String categoryRepair) {
+        return categoryRepairRepository.findAll(categoryRepair);
     }
 }

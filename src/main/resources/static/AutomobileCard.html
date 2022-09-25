@@ -52,6 +52,21 @@
                     <a href="#popup_searchKiaBase" class="header__nav popup-link">
                         Автомобиль марки KIA
                     </a>
+                    <a href="#popup_searchSkodaBase" class="header__nav popup-link">
+                        Автомобиль марки Skoda
+                    </a>
+                    <a href="#popup_searchCheryBase" class="header__nav popup-link">
+                        Автомобиль марки Chery
+                    </a>
+                    <a href="#popup_searchHavalBase" class="header__nav popup-link">
+                        Автомобиль марки Haval
+                    </a>
+                    <a href="#popup_searchFordBase" class="header__nav popup-link">
+                        Автомобиль марки Ford
+                    </a>
+                    <a href="#popup_searchMultibrandBase" class="header__nav popup-link">
+                        Автомобиль Multibrand
+                    </a>
                 </nav>
             </div>
         </header>
@@ -61,7 +76,7 @@
             <div class="popup__body">
                 <div class="popup__content">
                     <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
-                    <div class="popup__title">Поиск автомобиля</div>
+                    <div class="popup__title">Поиск автомобиля KIA</div>
                     <div class="popup_searchKiaBase">
                         <div class="popup__addUser header__nav popup-link" href="#popup_addCarKiaBase">
                             <a id="button__addUser" class="button" type="button">
@@ -80,81 +95,538 @@
                     </div>  
                 </div>
             </div>
-        </div>       
-    <div id="popup_addCarKiaBase" class="popup">
-        <div class="popup__body">
-            <div class="popup__content">
-                <a href="#popup_searchKiaBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
-                <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
-                <div class="popup__title">Заполните данные</div>
-                <div class="popup_addCarKiaBase">
-                    <form action="" class="form">
-                        <div id="searchCardKiaBaseNotUnique" class="searchCardKiaBaseNotUnique" style="color:red; font-size:16px; margin-left: 30px; margin-bottom:10px; visibility: hidden;">
-                            <span>Данный VIN есть в базе</span>
-                          </div>
-                        <div class="form__field">
-                        <input type="vin" class="form-user" id="floatingVINCarKiaBaseAdd" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
-                        <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
-                      </div>
-                      <div class="form__field">
-                        <input type="alterVin" class="form-user" id="floatingAlterVinCarKiaBaseAdd" placeholder="Дополнительный VIN*" minlength="0" maxlength="17" pattern="[A-Z0-9]+">
-                        <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
-                      </div>
-                      <div class="form__field">
-                        <input type="regNum" class="form-user" id="floatingRegNumCarKiaBaseAdd" placeholder="Гос. номер*">
-                      </div>
-                      <div class="form__field">
-                         Дата производства
-                        <input type="date" class="form-user" id="floatingDateReleaseCarKiaBaseAdd">
-                        <span class="form__error">Введите дату</span>
-                      </div>
-                      <div class="form__field">
-                         Дата поступления
-                        <input type="date" class="form-user" id="floatingDateArrivalCarKiaBaseAdd">
-                        <span class="form__error">Введите дату</span>
-                      </div>
-                      <button type="submit" id="searchCardKiaBaseNotUniqueButton" onclick="createCarKiaBase()" class="btn_user">Добавить</button>
-                    </form>
-                </div>  
-            </div>
-        </div>
-    </div>
-    <div id="popup_updateKiaCar" class="popup">
-        <div class="popup__body">
-            <div class="popup__content">
-                <a href="#popup_searchKiaBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
-                <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
-                <div class="popup__title">Измените данные</div>
-                <div class="popup_updateKiaCar">
-                    <form action="" class="form">
-                        <input type="hidden" class="form-user" id="floatingIdCarKiaBaseAdd" placeholder="">
-                        <div class="form__field">
+        </div> 
+        <div id="popup_addCarKiaBase" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#popup_searchKiaBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Заполните данные KIA</div>
+                    <div class="popup_addCarKiaBase">
+                        <form action="" class="form">
+                            <div id="searchCardKiaBaseNotUnique" class="searchCardKiaBaseNotUnique" style="color:red; font-size:16px; margin-left: 30px; margin-bottom:10px; visibility: hidden;">
+                                <span>Данный VIN есть в базе</span>
+                            </div>
+                            <div class="form__field">
                             <input type="vin" class="form-user" id="floatingVINCarKiaBaseAdd" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
                             <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
-                          </div>
-                          <div class="form__field">
+                        </div>
+                        <div class="form__field">
                             <input type="alterVin" class="form-user" id="floatingAlterVinCarKiaBaseAdd" placeholder="Дополнительный VIN*" minlength="0" maxlength="17" pattern="[A-Z0-9]+">
+                            <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
+                        </div>
+                        <div class="form__field">
+                            <input type="regNum" class="form-user" id="floatingRegNumCarKiaBaseAdd" placeholder="Гос. номер*">
+                        </div>
+                        <div class="form__field">
+                            Дата производства
+                            <input type="date" class="form-user" id="floatingDateReleaseCarKiaBaseAdd">
+                            <span class="form__error">Введите дату</span>
+                        </div>
+                        <div class="form__field">
+                            Дата поступления
+                            <input type="date" class="form-user" id="floatingDateArrivalCarKiaBaseAdd">
+                            <span class="form__error">Введите дату</span>
+                        </div>
+                        <button type="submit" id="searchCardKiaBaseNotUniqueButton" onclick="createCarKiaBase()" class="btn_user">Добавить</button>
+                        </form>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div id="popup_updateKiaCar" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#popup_searchKiaBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Измените данные KIA</div>
+                    <div class="popup_updateKiaCar">
+                        <form action="" class="form">
+                            <input type="hidden" class="form-user" id="floatingIdCarKiaBaseAdd" placeholder="">
+                            <div class="form__field">
+                                <input type="vin" class="form-user" id="floatingVINCarKiaBaseAdd" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
+                                <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
+                              </div>
+                              <div class="form__field">
+                                <input type="alterVin" class="form-user" id="floatingAlterVinCarKiaBaseAdd" placeholder="Дополнительный VIN*" minlength="0" maxlength="17" pattern="[A-Z0-9]+">
+                                <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
+                              </div>
+                              <div class="form__field">
+                                <input type="regNum" class="form-user" id="floatingRegNumCarKiaBaseAdd" placeholder="Гос. номер*">
+                              </div>
+                              <div class="form__field">
+                                 Дата производства
+                                <input type="date" class="form-user" id="floatingDateReleaseCarKiaBaseAdd">
+                                <span class="form__error">Введите дату</span>
+                              </div>
+                              <div class="form__field">
+                                 Дата поступления
+                                <input type="date" class="form-user" id="floatingDateArrivalCarKiaBaseAdd">
+                                <span class="form__error">Введите дату</span>
+                              </div>
+                              <button id="button_updateKiaCar" class="btn_user" type="submit">Сохранить</button>
+                         </form>
+                    </div>  
+                </div>
+            </div>
+        </div> 
+        
+        <div id="popup_searchSkodaBase" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Поиск автомобиля Skoda</div>
+                    <div class="popup_searchSkodaBase">
+                        <div class="popup__addUser header__nav popup-link" href="#popup_addCarSkodaBase">
+                            <a id="button__addUser" class="button" type="button">
+                                <i class="fa fa-plus" style="color: black">
+                                    <i class="fa fa-car" style="color: black">   
+                                    </i></i>
+                            </a> 
+                        </div>
+                        <form action="" class="formForSearchCheckedCar">
+                            <div class="form__field_formForSearchCheckedCar">
+                                <input type="text" class="form-user" id="floatingVINForSearchSkodaBase" placeholder="VIN*" minlength="0" maxlength="17" pattern="[A-Z0-9]+" required>
+                            </div>
+                        </form>
+                        <table id="searchSkodaBaseList" class="table table-striped"> 
+                        </table>
+                    </div>  
+                </div>
+            </div>
+        </div> 
+        <div id="popup_addCarSkodaBase" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#popup_searchSkodaBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Заполните данные Skoda</div>
+                    <div class="popup_addCarSkodaBase">
+                        <form action="" class="form">
+                            <div id="searchCardSkodaBaseNotUnique" class="searchCardSkodaBaseNotUnique" style="color:red; font-size:16px; margin-left: 30px; margin-bottom:10px; visibility: hidden;">
+                                <span>Данный VIN есть в базе</span>
+                              </div>
+                            <div class="form__field">
+                            <input type="vin" class="form-user" id="floatingVINCarSkodaBaseAdd" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
                             <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
                           </div>
                           <div class="form__field">
-                            <input type="regNum" class="form-user" id="floatingRegNumCarKiaBaseAdd" placeholder="Гос. номер*">
+                            <input type="regNum" class="form-user" id="floatingRegNumCarSkodaBaseAdd" placeholder="Гос. номер*">
                           </div>
                           <div class="form__field">
                              Дата производства
-                            <input type="date" class="form-user" id="floatingDateReleaseCarKiaBaseAdd">
+                            <input type="date" class="form-user" id="floatingDateReleaseCarSkodaBaseAdd">
                             <span class="form__error">Введите дату</span>
                           </div>
                           <div class="form__field">
                              Дата поступления
-                            <input type="date" class="form-user" id="floatingDateArrivalCarKiaBaseAdd">
+                            <input type="date" class="form-user" id="floatingDateArrivalCarSkodaBaseAdd">
                             <span class="form__error">Введите дату</span>
                           </div>
-                          <button id="button_updateKiaCar" class="btn_user" type="submit">Сохранить</button>
-                     </form>
-                </div>  
+                          <button type="submit" id="searchCardSkodaBaseNotUniqueButton" onclick="createCarSkodaBase()" class="btn_user">Добавить</button>
+                        </form>
+                    </div>  
+                </div>
             </div>
         </div>
-    </div> 
+        <div id="popup_updateSkodaCar" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#popup_searchSkodaBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Измените данные Skoda</div>
+                    <div class="popup_updateSkodaCar">
+                        <form action="" class="form">
+                            <input type="hidden" class="form-user" id="floatingIdCarSkodaBaseAdd" placeholder="">
+                            <div class="form__field">
+                                <input type="vin" class="form-user" id="floatingVINCarSkodaBaseAdd" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
+                                <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
+                              </div>
+                              <div class="form__field">
+                                <input type="regNum" class="form-user" id="floatingRegNumCarSkodaBaseAdd" placeholder="Гос. номер*">
+                              </div>
+                              <div class="form__field">
+                                 Дата производства
+                                <input type="date" class="form-user" id="floatingDateReleaseCarSkodaBaseAdd">
+                                <span class="form__error">Введите дату</span>
+                              </div>
+                              <div class="form__field">
+                                 Дата поступления
+                                <input type="date" class="form-user" id="floatingDateArrivalCarSkodaBaseAdd">
+                                <span class="form__error">Введите дату</span>
+                              </div>
+                              <button id="button_updateSkodaCar" class="btn_user" type="submit">Сохранить</button>
+                         </form>
+                    </div>  
+                </div>
+            </div>
+        </div> 
+
+        <div id="popup_searchCheryBase" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Поиск автомобиля Chery</div>
+                    <div class="popup_searchCheryBase">
+                        <div class="popup__addUser header__nav popup-link" href="#popup_addCarCheryBase">
+                            <a id="button__addUser" class="button" type="button">
+                                <i class="fa fa-plus" style="color: black">
+                                    <i class="fa fa-car" style="color: black">   
+                                    </i></i>
+                            </a> 
+                        </div>
+                        <form action="" class="formForSearchCheckedCar">
+                            <div class="form__field_formForSearchCheckedCar">
+                                <input type="text" class="form-user" id="floatingVINForSearchCheryBase" placeholder="VIN*" minlength="0" maxlength="17" pattern="[A-Z0-9]+" required>
+                            </div>
+                        </form>
+                        <table id="searchCheryBaseList" class="table table-striped"> 
+                        </table>
+                    </div>  
+                </div>
+            </div>
+        </div> 
+        <div id="popup_addCarCheryBase" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#popup_searchCheryBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Заполните данные Chery</div>
+                    <div class="popup_addCarCheryBase">
+                        <form action="" class="form">
+                            <div id="searchCardCheryBaseNotUnique" class="searchCardCheryBaseNotUnique" style="color:red; font-size:16px; margin-left: 30px; margin-bottom:10px; visibility: hidden;">
+                                <span>Данный VIN есть в базе</span>
+                              </div>
+                            <div class="form__field">
+                            <input type="vin" class="form-user" id="floatingVINCarCheryBaseAdd" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
+                            <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
+                          </div>
+                          <div class="form__field">
+                            <input type="regNum" class="form-user" id="floatingRegNumCarCheryBaseAdd" placeholder="Гос. номер*">
+                          </div>
+                          <div class="form__field">
+                             Дата производства
+                            <input type="date" class="form-user" id="floatingDateReleaseCarCheryBaseAdd">
+                            <span class="form__error">Введите дату</span>
+                          </div>
+                          <div class="form__field">
+                             Дата поступления
+                            <input type="date" class="form-user" id="floatingDateArrivalCarCheryBaseAdd">
+                            <span class="form__error">Введите дату</span>
+                          </div>
+                          <button type="submit" id="searchCardCheryBaseNotUniqueButton" onclick="createCarCheryBase()" class="btn_user">Добавить</button>
+                        </form>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div id="popup_updateCheryCar" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#popup_searchCheryBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Измените данные Chery</div>
+                    <div class="popup_updateCheryCar">
+                        <form action="" class="form">
+                            <input type="hidden" class="form-user" id="floatingIdCarCheryBaseAdd" placeholder="">
+                            <div class="form__field">
+                                <input type="vin" class="form-user" id="floatingVINCarCheryBaseAdd" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
+                                <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
+                              </div>
+                              <div class="form__field">
+                                <input type="regNum" class="form-user" id="floatingRegNumCarCheryBaseAdd" placeholder="Гос. номер*">
+                              </div>
+                              <div class="form__field">
+                                 Дата производства
+                                <input type="date" class="form-user" id="floatingDateReleaseCarCheryBaseAdd">
+                                <span class="form__error">Введите дату</span>
+                              </div>
+                              <div class="form__field">
+                                 Дата поступления
+                                <input type="date" class="form-user" id="floatingDateArrivalCarCheryBaseAdd">
+                                <span class="form__error">Введите дату</span>
+                              </div>
+                              <button id="button_updateCheryCar" class="btn_user" type="submit">Сохранить</button>
+                         </form>
+                    </div>  
+                </div>
+            </div>
+        </div> 
+
+        <div id="popup_searchHavalBase" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Поиск автомобиля Haval</div>
+                    <div class="popup_searchHavalBase">
+                        <div class="popup__addUser header__nav popup-link" href="#popup_addCarHavalBase">
+                            <a id="button__addUser" class="button" type="button">
+                                <i class="fa fa-plus" style="color: black">
+                                    <i class="fa fa-car" style="color: black">   
+                                    </i></i>
+                            </a> 
+                        </div>
+                        <form action="" class="formForSearchCheckedCar">
+                            <div class="form__field_formForSearchCheckedCar">
+                                <input type="text" class="form-user" id="floatingVINForSearchHavalBase" placeholder="VIN*" minlength="0" maxlength="17" pattern="[A-Z0-9]+" required>
+                            </div>
+                        </form>
+                        <table id="searchHavalBaseList" class="table table-striped"> 
+                        </table>
+                    </div>  
+                </div>
+            </div>
+        </div> 
+        <div id="popup_addCarHavalBase" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#popup_searchHavalBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Заполните данные Haval</div>
+                    <div class="popup_addCarHavalBase">
+                        <form action="" class="form">
+                            <div id="searchCardHavalBaseNotUnique" class="searchCardHavalBaseNotUnique" style="color:red; font-size:16px; margin-left: 30px; margin-bottom:10px; visibility: hidden;">
+                                <span>Данный VIN есть в базе</span>
+                              </div>
+                            <div class="form__field">
+                            <input type="vin" class="form-user" id="floatingVINCarHavalBaseAdd" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
+                            <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
+                          </div>
+                          <div class="form__field">
+                            <input type="regNum" class="form-user" id="floatingRegNumCarHavalBaseAdd" placeholder="Гос. номер*">
+                          </div>
+                          <div class="form__field">
+                             Дата производства
+                            <input type="date" class="form-user" id="floatingDateReleaseCarHavalBaseAdd">
+                            <span class="form__error">Введите дату</span>
+                          </div>
+                          <div class="form__field">
+                             Дата поступления
+                            <input type="date" class="form-user" id="floatingDateArrivalCarHavalBaseAdd">
+                            <span class="form__error">Введите дату</span>
+                          </div>
+                          <button type="submit" id="searchCardHavalBaseNotUniqueButton" onclick="createCarHavalBase()" class="btn_user">Добавить</button>
+                        </form>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div id="popup_updateHavalCar" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#popup_searchHavalBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Измените данные Haval</div>
+                    <div class="popup_updateHavalCar">
+                        <form action="" class="form">
+                            <input type="hidden" class="form-user" id="floatingIdCarHavalBaseAdd" placeholder="">
+                            <div class="form__field">
+                                <input type="vin" class="form-user" id="floatingVINCarHavalBaseAdd" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
+                                <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
+                              </div>
+                              <div class="form__field">
+                                <input type="regNum" class="form-user" id="floatingRegNumCarHavalBaseAdd" placeholder="Гос. номер*">
+                              </div>
+                              <div class="form__field">
+                                 Дата производства
+                                <input type="date" class="form-user" id="floatingDateReleaseCarHavalBaseAdd">
+                                <span class="form__error">Введите дату</span>
+                              </div>
+                              <div class="form__field">
+                                 Дата поступления
+                                <input type="date" class="form-user" id="floatingDateArrivalCarHavalBaseAdd">
+                                <span class="form__error">Введите дату</span>
+                              </div>
+                              <button id="button_updateHavalCar" class="btn_user" type="submit">Сохранить</button>
+                         </form>
+                    </div>  
+                </div>
+            </div>
+        </div> 
+
+        <div id="popup_searchFordBase" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Поиск автомобиля Ford</div>
+                    <div class="popup_searchFordBase">
+                        <div class="popup__addUser header__nav popup-link" href="#popup_addCarFordBase">
+                            <a id="button__addUser" class="button" type="button">
+                                <i class="fa fa-plus" style="color: black">
+                                    <i class="fa fa-car" style="color: black">   
+                                    </i></i>
+                            </a> 
+                        </div>
+                        <form action="" class="formForSearchCheckedCar">
+                            <div class="form__field_formForSearchCheckedCar">
+                                <input type="text" class="form-user" id="floatingVINForSearchFordBase" placeholder="VIN*" minlength="0" maxlength="17" pattern="[A-Z0-9]+" required>
+                            </div>
+                        </form>
+                        <table id="searchFordBaseList" class="table table-striped"> 
+                        </table>
+                    </div>  
+                </div>
+            </div>
+        </div> 
+        <div id="popup_addCarFordBase" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#popup_searchFordBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Заполните данные Ford</div>
+                    <div class="popup_addCarFordBase">
+                        <form action="" class="form">
+                            <div id="searchCardFordBaseNotUnique" class="searchCardFordBaseNotUnique" style="color:red; font-size:16px; margin-left: 30px; margin-bottom:10px; visibility: hidden;">
+                                <span>Данный VIN есть в базе</span>
+                              </div>
+                            <div class="form__field">
+                            <input type="vin" class="form-user" id="floatingVINCarFordBaseAdd" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
+                            <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
+                          </div>
+                          <div class="form__field">
+                            <input type="regNum" class="form-user" id="floatingRegNumCarFordBaseAdd" placeholder="Гос. номер*">
+                          </div>
+                          <div class="form__field">
+                             Дата производства
+                            <input type="date" class="form-user" id="floatingDateReleaseCarFordBaseAdd">
+                            <span class="form__error">Введите дату</span>
+                          </div>
+                          <div class="form__field">
+                             Дата поступления
+                            <input type="date" class="form-user" id="floatingDateArrivalCarFordBaseAdd">
+                            <span class="form__error">Введите дату</span>
+                          </div>
+                          <button type="submit" id="searchCardFordBaseNotUniqueButton" onclick="createCarFordBase()" class="btn_user">Добавить</button>
+                        </form>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div id="popup_updateFordCar" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#popup_searchFordBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Измените данные Ford</div>
+                    <div class="popup_updateFordCar">
+                        <form action="" class="form">
+                            <input type="hidden" class="form-user" id="floatingIdCarFordBaseAdd" placeholder="">
+                            <div class="form__field">
+                                <input type="vin" class="form-user" id="floatingVINCarFordBaseAdd" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
+                                <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
+                              </div>
+                              <div class="form__field">
+                                <input type="regNum" class="form-user" id="floatingRegNumCarFordBaseAdd" placeholder="Гос. номер*">
+                              </div>
+                              <div class="form__field">
+                                 Дата производства
+                                <input type="date" class="form-user" id="floatingDateReleaseCarFordBaseAdd">
+                                <span class="form__error">Введите дату</span>
+                              </div>
+                              <div class="form__field">
+                                 Дата поступления
+                                <input type="date" class="form-user" id="floatingDateArrivalCarFordBaseAdd">
+                                <span class="form__error">Введите дату</span>
+                              </div>
+                              <button id="button_updateFordCar" class="btn_user" type="submit">Сохранить</button>
+                         </form>
+                    </div>  
+                </div>
+            </div>
+        </div> 
+
+
+
+        <div id="popup_searchMultibrandBase" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Поиск автомобиля Multibrand</div>
+                    <div class="popup_searchMultibrandBase">
+                        <div class="popup__addUser header__nav popup-link" href="#popup_addCarMultibrandBase">
+                            <a id="button__addUser" class="button" type="button">
+                                <i class="fa fa-plus" style="color: black">
+                                    <i class="fa fa-car" style="color: black">   
+                                    </i></i>
+                            </a> 
+                        </div>
+                        <form action="" class="formForSearchCheckedCar">
+                            <div class="form__field_formForSearchCheckedCar">
+                                <input type="text" class="form-user" id="floatingVINForSearchMultibrandBase" placeholder="VIN*" minlength="0" maxlength="17" pattern="[A-Z0-9]+" required>
+                            </div>
+                        </form>
+                        <table id="searchMultibrandBaseList" class="table table-striped"> 
+                        </table>
+                    </div>  
+                </div>
+            </div>
+        </div> 
+        <div id="popup_addCarMultibrandBase" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#popup_searchMultibrandBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Заполните данные Multibrand</div>
+                    <div class="popup_addCarMultibrandBase">
+                        <form action="" class="form">
+                            <div id="searchCardMultibrandBaseNotUnique" class="searchCardMultibrandBaseNotUnique" style="color:red; font-size:16px; margin-left: 30px; margin-bottom:10px; visibility: hidden;">
+                                <span>Данный VIN есть в базе</span>
+                              </div>
+                            <div class="form__field">
+                            <input type="vin" class="form-user" id="floatingVINCarMultibrandBaseAdd" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
+                            <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
+                          </div>
+                          <div class="form__field">
+                            <input type="regNum" class="form-user" id="floatingRegNumCarMultibrandBaseAdd" placeholder="Гос. номер*">
+                          </div>
+                          <div class="form__field">
+                             Дата производства
+                            <input type="date" class="form-user" id="floatingDateReleaseCarMultibrandBaseAdd">
+                            <span class="form__error">Введите дату</span>
+                          </div>
+                          <div class="form__field">
+                             Дата поступления
+                            <input type="date" class="form-user" id="floatingDateArrivalCarMultibrandBaseAdd">
+                            <span class="form__error">Введите дату</span>
+                          </div>
+                          <button type="submit" id="searchCardMultibrandBaseNotUniqueButton" onclick="createCarMultibrandBase()" class="btn_user">Добавить</button>
+                        </form>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div id="popup_updateMultibrandCar" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#popup_searchMultibrandBase" class="popup__close popup-link" style="right: 35px"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                    <a href="#header" class="popup__close close-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <div class="popup__title">Измените данные Multibrand</div>
+                    <div class="popup_updateMultibrandCar">
+                        <form action="" class="form">
+                            <input type="hidden" class="form-user" id="floatingIdCarMultibrandBaseAdd" placeholder="">
+                            <div class="form__field">
+                                <input type="vin" class="form-user" id="floatingVINCarMultibrandBaseAdd" placeholder="VIN*" minlength="17" maxlength="17" pattern="[A-Z0-9]+" required>
+                                <span class="form__error">Это поле должно содержать латинские буквы и цифры, длина 17 символов</span>
+                              </div>
+                              <div class="form__field">
+                                <input type="regNum" class="form-user" id="floatingRegNumCarMultibrandBaseAdd" placeholder="Гос. номер*">
+                              </div>
+                              <div class="form__field">
+                                 Дата производства
+                                <input type="date" class="form-user" id="floatingDateReleaseCarMultibrandBaseAdd">
+                                <span class="form__error">Введите дату</span>
+                              </div>
+                              <div class="form__field">
+                                 Дата поступления
+                                <input type="date" class="form-user" id="floatingDateArrivalCarMultibrandBaseAdd">
+                                <span class="form__error">Введите дату</span>
+                              </div>
+                              <button id="button_updateMultibrandCar" class="btn_user" type="submit">Сохранить</button>
+                         </form>
+                    </div>  
+                </div>
+            </div>
+        </div> 
 
     <div id="popup_ok" class="popup">
         <div class="popup__body">
@@ -184,8 +656,29 @@
     </div>
     
     <script src="js/popupUsers.js"></script>
+
     <script src="js/searchCardKiaBase.js"></script>
     <script src="js/createCarKiaBase.js"></script>
     <script src="js/updateKiaCarFromBase.js"></script>  
+    
+    <script src="js/searchCardSkodaBase.js"></script>
+    <script src="js/createCarSkodaBase.js"></script>
+    <script src="js/updateSkodaCarFromBase.js"></script>
+
+    <script src="js/searchCardCheryBase.js"></script>
+    <script src="js/createCarCheryBase.js"></script>
+    <script src="js/updateCheryCarFromBase.js"></script>
+
+    <script src="js/searchCardFordBase.js"></script>
+    <script src="js/createCarFordBase.js"></script>
+    <script src="js/updateFordCarFromBase.js"></script>
+
+    <script src="js/searchCardHavalBase.js"></script>
+    <script src="js/createCarHavalBase.js"></script>
+    <script src="js/updateHavalCarFromBase.js"></script>
+
+    <script src="js/searchCardMultibrandBase.js"></script>
+    <script src="js/createCarMultibrandBase.js"></script>
+    <script src="js/updateMultibrandCarFromBase.js"></script>
 </body>
 </html>
