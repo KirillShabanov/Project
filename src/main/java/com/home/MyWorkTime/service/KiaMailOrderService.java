@@ -31,15 +31,13 @@ public class KiaMailOrderService {
         this.javaMailSender = javaMailSender;
     }
 
-
-    @Scheduled(fixedDelay = 50000)
+    @Scheduled(cron = "2 * 20 * * *")
     public void createExcelKiaCall() {
         List<KiaMailOrderModel> firstCall = kiaMailOrderRepository.getFirstCall();
-        List<KiaMailOrderModel> npsCall = kiaMailOrderRepository.getNPSCall();
 
         try {
             // Создают Excel файл
-            String filenamePost = "C:/Users/User/Desktop/ПостСервисныйОбзвон.xls";
+            String filenamePost = "C:/Users/User/Desktop/MyWorkTime/MyWorkTime/src/main/resources/exportData/feedBack/ПостСервисныйОбзвон.xls";
             HSSFWorkbook workbookFirstCall = new HSSFWorkbook();
             HSSFSheet sheetFirstCall = workbookFirstCall.createSheet("ПостСервисныйОбзвон");
 
@@ -52,6 +50,7 @@ public class KiaMailOrderService {
             rowheadFirstCall.createCell(4).setCellValue("ФИО");
             rowheadFirstCall.createCell(5).setCellValue("Замечания");
             rowheadFirstCall.createCell(6).setCellValue("Примечания");
+            rowheadFirstCall.createCell(7).setCellValue("Дата звонка");
 
 
             for (int i=0; i< firstCall.size(); i++) {
@@ -82,9 +81,16 @@ public class KiaMailOrderService {
             System.out.println("Бяда!");
         }
 
+
+
+    }
+    @Scheduled(cron = "1 * 20 * * *")
+    public void createExcelNPSKiaCall(){
+        List<KiaMailOrderModel> npsCall = kiaMailOrderRepository.getNPSCall();
+
         try {
             // Создают Excel файл
-            String filenameNps = "C:/Users/User/Desktop/NPS-KIA Обзвон.xls";
+            String filenameNps = "C:/Users/User/Desktop/MyWorkTime/MyWorkTime/src/main/resources/exportData/feedBack/NPS-KIA Обзвон.xls";
             HSSFWorkbook workbookNPS = new HSSFWorkbook();
             HSSFSheet sheetNPS = workbookNPS.createSheet("NPS-KIA");
 
@@ -123,6 +129,7 @@ public class KiaMailOrderService {
             rowheadNPS.createCell(30).setCellValue("DQ030");
             rowheadNPS.createCell(31).setCellValue("DQ040");
             rowheadNPS.createCell(32).setCellValue("Дата звонка");
+            rowheadNPS.createCell(33).setCellValue("ИФ Администратора");
 
             for (int i=0; i< npsCall.size(); i++) {
                 //Строки
@@ -137,25 +144,28 @@ public class KiaMailOrderService {
                 sheetNPS.autoSizeColumn(2);
                 sheetNPS.autoSizeColumn(3);
                 sheetNPS.autoSizeColumn(4);
+                sheetNPS.autoSizeColumn(33);
 
             }
             //Запись файла
             FileOutputStream fileOutNps = new FileOutputStream(filenameNps);
             workbookNPS.write(fileOutNps);
             fileOutNps.close();
+            sendHtmlMessageKiaNpsCall(filenameNps);
             System.out.println("NPS-KIA создан!");
         }   catch ( Exception ex ) {
             System.out.println("Бяда!");
         }
-
     }
 
     private void sendHtmlMessageKiaFirstCall(String filenamePost) throws MessagingException {
 
-        MimeMessage message = javaMailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
+        MimeMessage messageFirstCall = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(messageFirstCall, true, "UTF-8");
         helper.setFrom("info@vitautocity.by");
-        helper.setTo("k.shabanov@vitautocity.by");
+        helper.setTo("i.komlev@vitautocity.by");  //-получатель
+        helper.setCc("t.trutchenko@vitautocity.by");  //-копия
+        helper.setCc("k.shabanov@vitautocity.by");  //-копия
         helper.setSubject("Пост сервисный обзвон клиентов KIA");
         helper.setText("""
                 Добрый день!
@@ -164,10 +174,29 @@ public class KiaMailOrderService {
                 После заполнения - отправить файл на электронную почту: k.shabanov@vitautocity.by""");
 
 
-        FileSystemResource file1 = new FileSystemResource(new File(filenamePost));
-        helper.addAttachment("C:/Users/User/Desktop/ПостСервисныйОбзвон.xls", file1);
-        javaMailSender.send(message);
+        FileSystemResource fileFirstCall = new FileSystemResource(new File(filenamePost));
+        helper.addAttachment("firstCallKia.xls", fileFirstCall);
+        javaMailSender.send(messageFirstCall);
+    }
+
+    private void sendHtmlMessageKiaNpsCall(String filenameNps) throws MessagingException {
+
+        MimeMessage messageNpsCall = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(messageNpsCall, true, "UTF-8");
+        helper.setFrom("info@vitautocity.by");
+        helper.setTo("administator@vitautocity.by"); //-получатель
+        helper.setCc("k.shabanov@vitautocity.by");  //-копия
+        helper.setSubject("NPS KIA");
+        helper.setText("""
+                Добрый день!
+
+                Прошу Вас провести обратную связь с клиентами и заполнить вложенный файл.
+                Прошу учесть, что один клиент из представленного списка должен быть опрошен по расширенному чек-листу.
+                После заполнения - отправить файл на электронную почту: k.shabanov@vitautocity.by""");
 
 
+        FileSystemResource fileNpsCall = new FileSystemResource(new File(filenameNps));
+        helper.addAttachment("NPSkia.xls", fileNpsCall);
+        javaMailSender.send(messageNpsCall);
     }
 }

@@ -25,6 +25,8 @@ public class OrderOutfitModel {
     @Column
     private Long num_order;
     @Column
+    private String brand;
+    @Column
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date_order;
     @Column
@@ -42,23 +44,13 @@ public class OrderOutfitModel {
     @Column
     private String administrator_name;
     @Column
-    private Double nps_master_receiver;
-    @Column
-    private Double nps_service;
-    @Column
-    private Double nps_mechanic;
-    @Column
     private Double nps;
     @Column
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date_first_call;
     @Column
-    private Long id_first_call;
-    @Column
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date_nps_call;
-    @Column
-    private Long id_nps_call;
     @Column
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate create_date_position;
