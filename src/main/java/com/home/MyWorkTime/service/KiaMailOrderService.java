@@ -100,35 +100,36 @@ public class KiaMailOrderService {
             rowheadNPS.createCell(2).setCellValue("VIN");
             rowheadNPS.createCell(3).setCellValue("Телефон");
             rowheadNPS.createCell(4).setCellValue("ФИО");
-            rowheadNPS.createCell(5).setCellValue("BQ010");
-            rowheadNPS.createCell(6).setCellValue("BQ020");
-            rowheadNPS.createCell(7).setCellValue("BQ030");
-            rowheadNPS.createCell(8).setCellValue("BQ030 Прим.");
-            rowheadNPS.createCell(9).setCellValue("BQ040");
-            rowheadNPS.createCell(10).setCellValue("BQ050");
-            rowheadNPS.createCell(11).setCellValue("BQ050 Прим.");
-            rowheadNPS.createCell(12).setCellValue("BQ060");
-            rowheadNPS.createCell(13).setCellValue("BQ070");
-            rowheadNPS.createCell(14).setCellValue("BQ080");
-            rowheadNPS.createCell(15).setCellValue("BQ080 Прим.");
-            rowheadNPS.createCell(16).setCellValue("SQ020");
-            rowheadNPS.createCell(17).setCellValue("SQ030");
-            rowheadNPS.createCell(18).setCellValue("SQ040");
-            rowheadNPS.createCell(19).setCellValue("SQ050");
-            rowheadNPS.createCell(20).setCellValue("SQ060");
-            rowheadNPS.createCell(21).setCellValue("SQ070");
-            rowheadNPS.createCell(22).setCellValue("SQ080");
-            rowheadNPS.createCell(23).setCellValue("SQ090");
-            rowheadNPS.createCell(24).setCellValue("SQ110");
-            rowheadNPS.createCell(25).setCellValue("SQ120");
-            rowheadNPS.createCell(26).setCellValue("SQ130");
-            rowheadNPS.createCell(27).setCellValue("SQ140");
-            rowheadNPS.createCell(28).setCellValue("DQ010");
-            rowheadNPS.createCell(29).setCellValue("DQ020");
-            rowheadNPS.createCell(30).setCellValue("DQ030");
-            rowheadNPS.createCell(31).setCellValue("DQ040");
-            rowheadNPS.createCell(32).setCellValue("Дата звонка");
-            rowheadNPS.createCell(33).setCellValue("ИФ Администратора");
+            rowheadNPS.createCell(5).setCellValue("Пробег");
+            rowheadNPS.createCell(6).setCellValue("BQ010");
+            rowheadNPS.createCell(7).setCellValue("BQ020");
+            rowheadNPS.createCell(8).setCellValue("BQ030");
+            rowheadNPS.createCell(9).setCellValue("BQ030 Прим.");
+            rowheadNPS.createCell(10).setCellValue("BQ040");
+            rowheadNPS.createCell(11).setCellValue("BQ050");
+            rowheadNPS.createCell(12).setCellValue("BQ050 Прим.");
+            rowheadNPS.createCell(13).setCellValue("BQ060");
+            rowheadNPS.createCell(14).setCellValue("BQ070");
+            rowheadNPS.createCell(15).setCellValue("BQ080");
+            rowheadNPS.createCell(16).setCellValue("BQ080 Прим.");
+            rowheadNPS.createCell(17).setCellValue("SQ020");
+            rowheadNPS.createCell(18).setCellValue("SQ030");
+            rowheadNPS.createCell(19).setCellValue("SQ040");
+            rowheadNPS.createCell(20).setCellValue("SQ050");
+            rowheadNPS.createCell(21).setCellValue("SQ060");
+            rowheadNPS.createCell(22).setCellValue("SQ070");
+            rowheadNPS.createCell(23).setCellValue("SQ080");
+            rowheadNPS.createCell(24).setCellValue("SQ090");
+            rowheadNPS.createCell(25).setCellValue("SQ110");
+            rowheadNPS.createCell(26).setCellValue("SQ120");
+            rowheadNPS.createCell(27).setCellValue("SQ130");
+            rowheadNPS.createCell(28).setCellValue("SQ140");
+            rowheadNPS.createCell(29).setCellValue("DQ010");
+            rowheadNPS.createCell(30).setCellValue("DQ020");
+            rowheadNPS.createCell(31).setCellValue("DQ030");
+            rowheadNPS.createCell(32).setCellValue("DQ040");
+            rowheadNPS.createCell(33).setCellValue("Дата звонка");
+            rowheadNPS.createCell(34).setCellValue("ИФ Администратора");
 
             for (int i=0; i< npsCall.size(); i++) {
                 //Строки
@@ -138,12 +139,14 @@ public class KiaMailOrderService {
                 rowNPS.createCell(2).setCellValue(npsCall.get(i).getVin());
                 rowNPS.createCell(3).setCellValue(npsCall.get(i).getPhone());
                 rowNPS.createCell(4).setCellValue(npsCall.get(i).getClient_name());
+                rowNPS.createCell(5).setCellValue(npsCall.get(i).getMileage());
                 sheetNPS.autoSizeColumn(0);
                 sheetNPS.autoSizeColumn(1);
                 sheetNPS.autoSizeColumn(2);
                 sheetNPS.autoSizeColumn(3);
                 sheetNPS.autoSizeColumn(4);
-                sheetNPS.autoSizeColumn(33);
+                sheetNPS.autoSizeColumn(5);
+                sheetNPS.autoSizeColumn(34);
 
             }
             //Запись файла

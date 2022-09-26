@@ -104,10 +104,10 @@ public class SkodaMailOrderService {
             rowheadNPS.createCell(2).setCellValue("VIN");
             rowheadNPS.createCell(3).setCellValue("Телефон");
             rowheadNPS.createCell(4).setCellValue("ФИО");
-            rowheadNPS.createCell(5).setCellValue("BQ010");
-
-            rowheadNPS.createCell(6).setCellValue("Дата звонка");
-            rowheadNPS.createCell(7).setCellValue("ИФ Администратора");
+            rowheadNPS.createCell(5).setCellValue("Пробег");
+            rowheadNPS.createCell(6).setCellValue("NPS");
+            rowheadNPS.createCell(7).setCellValue("Дата звонка");
+            rowheadNPS.createCell(8).setCellValue("ИФ Администратора");
 
             for (int i=0; i< npsCall.size(); i++) {
                 //Строки
@@ -117,12 +117,13 @@ public class SkodaMailOrderService {
                 rowNPS.createCell(2).setCellValue(npsCall.get(i).getVin());
                 rowNPS.createCell(3).setCellValue(npsCall.get(i).getPhone());
                 rowNPS.createCell(4).setCellValue(npsCall.get(i).getClient_name());
+                rowNPS.createCell(5).setCellValue(npsCall.get(i).getMileage());
                 sheetNPS.autoSizeColumn(0);
                 sheetNPS.autoSizeColumn(1);
                 sheetNPS.autoSizeColumn(2);
                 sheetNPS.autoSizeColumn(3);
                 sheetNPS.autoSizeColumn(4);
-                sheetNPS.autoSizeColumn(7);
+                sheetNPS.autoSizeColumn(8);
 
             }
             //Запись файла

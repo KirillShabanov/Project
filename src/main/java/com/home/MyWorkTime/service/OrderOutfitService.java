@@ -38,8 +38,8 @@ public class OrderOutfitService {
         return orderOutfitRepository.save(addOrderOutfit);
     }
 
-    @Scheduled(cron = "1 05 20 * * *")
-    public void updateOrderFirstCall() throws IOException {
+    @Scheduled(cron = "1 0 20 * * *")
+    public void updateOrderFirstCallKia() throws IOException {
         FileInputStream filenamePost = new FileInputStream("C:/Users/User/IdeaProjects/Project/src/main/resources/importData/feedback/firstCallKia.xls");
         Workbook wb = new HSSFWorkbook(filenamePost);
         for (int i = 0; i< wb.getSheetAt(0).getLastRowNum(); i++) {
@@ -48,19 +48,69 @@ public class OrderOutfitService {
             orderOutfitRepository.updateOrderFirstCall(interDateFirstCall, numOrder);
         }
         filenamePost.close();
-
-
     }
 
-    @Scheduled(cron = "1 05 20 * * *")
-    public void updateOrderNpsCall() throws IOException {
+    @Scheduled(cron = "1 01 20 * * *")
+    public void updateOrderFirstCallMultibrand() throws IOException {
+        FileInputStream filenamePost = new FileInputStream("C:/Users/User/IdeaProjects/Project/src/main/resources/importData/feedback/firstCallMultibrand.xls");
+        Workbook wb = new HSSFWorkbook(filenamePost);
+        for (int i = 0; i< wb.getSheetAt(0).getLastRowNum(); i++) {
+            Date interDateFirstCall = wb.getSheetAt(0).getRow(i+1).getCell(7).getDateCellValue();
+            int numOrder = (int) wb.getSheetAt(0).getRow(i+1).getCell(1).getNumericCellValue();
+            orderOutfitRepository.updateOrderFirstCall(interDateFirstCall, numOrder);
+        }
+        filenamePost.close();
+    }
+
+    @Scheduled(cron = "1 02 20 * * *")
+    public void updateOrderFirstCallSkoda() throws IOException {
+        FileInputStream filenamePost = new FileInputStream("C:/Users/User/IdeaProjects/Project/src/main/resources/importData/feedback/firstCallSkoda.xls");
+        Workbook wb = new HSSFWorkbook(filenamePost);
+        for (int i = 0; i< wb.getSheetAt(0).getLastRowNum(); i++) {
+            Date interDateFirstCall = wb.getSheetAt(0).getRow(i+1).getCell(7).getDateCellValue();
+            int numOrder = (int) wb.getSheetAt(0).getRow(i+1).getCell(1).getNumericCellValue();
+            orderOutfitRepository.updateOrderFirstCall(interDateFirstCall, numOrder);
+        }
+        filenamePost.close();
+    }
+
+    @Scheduled(cron = "1 03 20 * * *")
+    public void updateOrderNpsCallKia() throws IOException {
         FileInputStream filenamePost = new FileInputStream("C:/Users/User/IdeaProjects/Project/src/main/resources/importData/feedback/NPSkia.xls");
         Workbook wb = new HSSFWorkbook(filenamePost);
         for (int i = 0; i< wb.getSheetAt(0).getLastRowNum(); i++) {
             int numOrder = (int) wb.getSheetAt(0).getRow(i+1).getCell(1).getNumericCellValue();
-            int interNps = (int) wb.getSheetAt(0).getRow(i+1).getCell(9).getNumericCellValue();
-            Date interDateNpsCall = wb.getSheetAt(0).getRow(i+1).getCell(32).getDateCellValue();
-            String interSet = wb.getSheetAt(0).getRow(i+1).getCell(33).getStringCellValue();
+            int interNps = (int) wb.getSheetAt(0).getRow(i+1).getCell(10).getNumericCellValue();
+            Date interDateNpsCall = wb.getSheetAt(0).getRow(i+1).getCell(33).getDateCellValue();
+            String interSet = wb.getSheetAt(0).getRow(i+1).getCell(34).getStringCellValue();
+            orderOutfitRepository.updateOrderNpsCall(interSet, interNps, interDateNpsCall, numOrder);
+        }
+        filenamePost.close();
+    }
+
+    @Scheduled(cron = "1 04 20 * * *")
+    public void updateOrderNpsCallMultibrand() throws IOException {
+        FileInputStream filenamePost = new FileInputStream("C:/Users/User/IdeaProjects/Project/src/main/resources/importData/feedback/NPSmultibrand.xls");
+        Workbook wb = new HSSFWorkbook(filenamePost);
+        for (int i = 0; i< wb.getSheetAt(0).getLastRowNum(); i++) {
+            int numOrder = (int) wb.getSheetAt(0).getRow(i+1).getCell(1).getNumericCellValue();
+            int interNps = (int) wb.getSheetAt(0).getRow(i+1).getCell(10).getNumericCellValue();
+            Date interDateNpsCall = wb.getSheetAt(0).getRow(i+1).getCell(33).getDateCellValue();
+            String interSet = wb.getSheetAt(0).getRow(i+1).getCell(34).getStringCellValue();
+            orderOutfitRepository.updateOrderNpsCall(interSet, interNps, interDateNpsCall, numOrder);
+        }
+        filenamePost.close();
+    }
+
+    @Scheduled(cron = "1 05 20 * * *")
+    public void updateOrderNpsCallSkoda() throws IOException {
+        FileInputStream filenamePost = new FileInputStream("C:/Users/User/IdeaProjects/Project/src/main/resources/importData/feedback/NPSskoda.xls");
+        Workbook wb = new HSSFWorkbook(filenamePost);
+        for (int i = 0; i< wb.getSheetAt(0).getLastRowNum(); i++) {
+            int numOrder = (int) wb.getSheetAt(0).getRow(i+1).getCell(1).getNumericCellValue();
+            int interNps = (int) wb.getSheetAt(0).getRow(i+1).getCell(6).getNumericCellValue();
+            Date interDateNpsCall = wb.getSheetAt(0).getRow(i+1).getCell(7).getDateCellValue();
+            String interSet = wb.getSheetAt(0).getRow(i+1).getCell(8).getStringCellValue();
             orderOutfitRepository.updateOrderNpsCall(interSet, interNps, interDateNpsCall, numOrder);
         }
         filenamePost.close();
