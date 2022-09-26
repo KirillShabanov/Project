@@ -29,7 +29,7 @@ public class ReportCallForVASService {
         this.javaMailSender = javaMailSender;
     }
 
-    @Scheduled(cron = "1 * 20 * * 7")
+    @Scheduled(cron = "1 0 20 * * 7")
     public void npsKiaKomlev() throws MessagingException {
         String brand = "KIA";
         String name = "Илья Комлев";
@@ -52,7 +52,7 @@ public class ReportCallForVASService {
         sendHtmlMessageNps(s, name, resultNpsForMonth, resultNpsForWeek);
     }
 
-   @Scheduled(cron = "2 * 20 * * 7")
+   @Scheduled(cron = "1 0 20 * * 7")
     public void npsKiaTrutchenko() throws MessagingException {
         String brand = "KIA";
         String name = "Тимур Трутченко";
@@ -76,7 +76,7 @@ public class ReportCallForVASService {
         sendHtmlMessageNps(s, name, resultNpsForMonth, resultNpsForWeek);
     }
 
-   @Scheduled(cron = "3 * 20 * * 7")
+   @Scheduled(cron = "1 0 20 * * 7")
     public void npsBeliy() throws MessagingException {
         String name = "Игорь Белый";
         double criticForMonthMulti = reportCallForVASRepository.getCriticForMonthMulti(name);
@@ -99,7 +99,7 @@ public class ReportCallForVASService {
         sendHtmlMessageNps(s, name, resultNpsForMonthMulti, resultNpsForWeekMulti);
     }
 
-    @Scheduled(cron = "4 * 20 * * 7")
+    @Scheduled(cron = "1 0 20 * * 7")
     public void npsStolyarov() throws MessagingException {
         String name = "Андрей Столяров";
         double criticForMonthMulti = reportCallForVASRepository.getCriticForMonthMulti(name);
@@ -122,7 +122,7 @@ public class ReportCallForVASService {
         sendHtmlMessageNps(s, name, resultNpsForMonthMulti, resultNpsForWeekMulti);
     }
 
-   @Scheduled(cron = "5 * 20 * * 7")
+   @Scheduled(cron = "1 0 20 * * 7")
     public void npsTimofeev() throws MessagingException {
         String name = "Вадим Тимофеев";
         double criticForMonthMulti = reportCallForVASRepository.getCriticForMonthMulti(name);
@@ -145,7 +145,7 @@ public class ReportCallForVASService {
         sendHtmlMessageNps(s, name, resultNpsForMonthMulti, resultNpsForWeekMulti);
     }
 
-    @Scheduled(cron = "6 * 20 * * 7")
+    @Scheduled(cron = "1 0 20 * * 7")
     public void npsZezekalo() throws MessagingException {
         String name = "Эрнест Зезекало";
         double criticForMonthGarantia = reportCallForVASRepository.getCriticForMonthGarantia(name);
@@ -159,7 +159,7 @@ public class ReportCallForVASService {
         System.out.println(resultNpsForWeekMultiGarantia + " -Неделя");
 
 
-        String s = "e.zezekalo@vitautocity.by";
+        String s = "e.zezekala@vitautocity.by";
         sendHtmlMessageNps(s, name, resultNpsForMonthGarantia, resultNpsForWeekMultiGarantia);
     }
 
@@ -182,7 +182,7 @@ public class ReportCallForVASService {
         javaMailSender.send(messageNps);
     }
 
-    @Scheduled(cron = "20 * 20 * * 7")
+    @Scheduled(cron = "1 0 20 * * 7")
     public void npsManagement() throws MessagingException {
         String brand = "KIA";
         String name = "Илья Комлев";

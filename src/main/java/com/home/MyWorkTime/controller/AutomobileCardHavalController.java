@@ -23,9 +23,9 @@ public class AutomobileCardHavalController {
         return automobileCardHavalService.addNewAutomobileCardHaval(automobileCardHavalModel);
     }
 
-    @GetMapping(value = "/{searchCardHavalBaseInput}")
-    public List<AutomobileCardHavalModel> searchCardHavalBase(@PathVariable String searchCardHavalBaseInput){
-        return automobileCardHavalService.searchCardHavalBase(searchCardHavalBaseInput);
+    @GetMapping(value = "/{searchCardBaseInput}")
+    public List<AutomobileCardHavalModel> searchCardHavalBase(@PathVariable String searchCardBaseInput){
+        return automobileCardHavalService.searchCardHavalBase(searchCardBaseInput);
     }
 
     @GetMapping(value = "/findByIdCarHaval/{id}")

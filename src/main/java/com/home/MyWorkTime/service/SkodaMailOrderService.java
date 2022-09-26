@@ -35,13 +35,13 @@ public class SkodaMailOrderService {
         this.javaMailSender = javaMailSender;
     }
 
-    @Scheduled(cron = "2 * 20 * * *")
+    @Scheduled(cron = "1 50 16 * * *")
     public void createExcelSkodaCall() {
         List<SkodaMailOrderModel> firstCall = skodaMailOrderRepository.getFirstCall();
 
         try {
             // Создают Excel файл
-            String filenamePost = "C:/Users/User/Desktop/MyWorkTime/MyWorkTime/src/main/resources/exportData/feedBack/firstCallSkoda.xls";
+            String filenamePost = "C:/Users/User/IdeaProjects/Project/src/main/resources/exportData/feedBack/firstCallSkoda.xls";
             HSSFWorkbook workbookFirstCall = new HSSFWorkbook();
             HSSFSheet sheetFirstCall = workbookFirstCall.createSheet("ПостСервисныйОбзвон");
 
@@ -87,13 +87,13 @@ public class SkodaMailOrderService {
 
 
     }
-    @Scheduled(cron = "1 * 20 * * *")
+    @Scheduled(cron = "1 50 16 * * *")
     public void createExcelNPSSkodaCall(){
         List<SkodaMailOrderModel> npsCall = skodaMailOrderRepository.getNPSCall();
 
         try {
             // Создают Excel файл
-            String filenameNps = "C:/Users/User/Desktop/MyWorkTime/MyWorkTime/src/main/resources/exportData/feedBack/NPSskoda.xls";
+            String filenameNps = "C:/Users/User/IdeaProjects/Project/src/main/resources/exportData/feedBack/NPSskoda.xls";
             HSSFWorkbook workbookNPS = new HSSFWorkbook();
             HSSFSheet sheetNPS = workbookNPS.createSheet("NPS-Skoda");
 
@@ -140,7 +140,7 @@ public class SkodaMailOrderService {
         MimeMessage messageFirstCall = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(messageFirstCall, true, "UTF-8");
         helper.setFrom("info@vitautocity.by");
-        helper.setTo("i.belyi@vitautocity.by");  //-получатель
+        helper.setTo("i.beluy@vitautocity.by");  //-получатель
         helper.setTo("stoliarov@vitautocity.by");  //-копия
         helper.setTo("timofeev@vitautocity.by");  //-копия
         helper.setCc("k.shabanov@vitautocity.by");  //-копия
@@ -153,7 +153,7 @@ public class SkodaMailOrderService {
 
 
         FileSystemResource fileFirstCall = new FileSystemResource(new File(filenamePost));
-        helper.addAttachment("firstCallKia.xls", fileFirstCall);
+        helper.addAttachment("firstCallSkoda.xls", fileFirstCall);
         javaMailSender.send(messageFirstCall);
     }
 
@@ -162,14 +162,13 @@ public class SkodaMailOrderService {
         MimeMessage messageNpsCall = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(messageNpsCall, true, "UTF-8");
         helper.setFrom("info@vitautocity.by");
-        helper.setTo("administator@vitautocity.by"); //-получатель
+        helper.setTo("administrator@vitautocity.by"); //-получатель
         helper.setCc("k.shabanov@vitautocity.by");  //-копия
         helper.setSubject("NPS Skoda");
         helper.setText("""
                 Добрый день!
 
                 Прошу Вас провести обратную связь с клиентами и заполнить вложенный файл.
-                Прошу учесть, что один клиент из представленного списка должен быть опрошен по расширенному чек-листу.
                 После заполнения - отправить файл на электронную почту: k.shabanov@vitautocity.by""");
 
 

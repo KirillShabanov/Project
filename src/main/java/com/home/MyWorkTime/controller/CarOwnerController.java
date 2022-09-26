@@ -26,9 +26,9 @@ public class CarOwnerController {
         return carOwnerService.saveOwner(carOwnerModel);
     }
 
-    @GetMapping("/{vinForSearchKiaBaseInput}")
-    public List<Map<String, String>> vinForSearchKiaBaseInputKey(@PathVariable String vinForSearchKiaBaseInput){
-        return carOwnerService.vinForSearchKiaBaseInputKey(vinForSearchKiaBaseInput);
+    @GetMapping("/{vinForSearchBaseInput}")
+    public List<Map<String, String>> vinForSearchKiaBaseInputKey(@PathVariable String vinForSearchBaseInput){
+        return carOwnerService.vinForSearchKiaBaseInputKey(vinForSearchBaseInput);
     }
     @GetMapping("/findById/{id}")
     public Optional<CarOwnerModel> fundById(@PathVariable Long id){

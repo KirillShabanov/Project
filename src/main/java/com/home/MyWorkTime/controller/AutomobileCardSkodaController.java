@@ -23,9 +23,9 @@ public class AutomobileCardSkodaController {
         return automobileCardSkodaService.addNewAutomobileCardSkoda(automobileCardSkodaModel);
     }
 
-    @GetMapping(value = "/{searchCardSkodaBaseInput}")
-    public List<AutomobileCardSkodaModel> searchCardSkodaBase(@PathVariable String searchCardSkodaBaseInput){
-        return automobileCardSkodaService.searchCardSkodaBase(searchCardSkodaBaseInput);
+    @GetMapping(value = "/{searchCardBaseInput}")
+    public List<AutomobileCardSkodaModel> searchCardSkodaBase(@PathVariable String searchCardBaseInput){
+        return automobileCardSkodaService.searchCardSkodaBase(searchCardBaseInput);
     }
 
     @GetMapping(value = "/findByIdCarSkoda/{id}")

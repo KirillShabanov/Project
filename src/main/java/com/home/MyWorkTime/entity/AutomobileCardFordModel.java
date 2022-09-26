@@ -25,8 +25,6 @@ public class AutomobileCardFordModel {
     @Column
     private String vin;
     @Column
-    private String alter_vin;
-    @Column
     private String reg_num;
     @Column
     @DateTimeFormat(pattern = "yyyy-MM-dd")

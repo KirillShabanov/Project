@@ -30,8 +30,8 @@ public class AutomobileCardKiaService {
         return AutomobileCardKiaRepository.saveAutomobileCardKiaModel(addNewAutomobileCardKia);
     }
 
-    public List<AutomobileCardKiaModel> searchCardKiaBase(String searchCardKiaBaseInput) {
-        return automobileCardKiaVinRepository.searchCardKiaBase(searchCardKiaBaseInput);
+    public List<AutomobileCardKiaModel> searchCardKiaBase(String searchCardBaseInput) {
+        return automobileCardKiaVinRepository.searchCardKiaBase(searchCardBaseInput);
     }
 
     public Optional<AutomobileCardKiaModel> findById(Long id) {

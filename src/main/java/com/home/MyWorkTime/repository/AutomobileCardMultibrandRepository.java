@@ -1,6 +1,5 @@
 package com.home.MyWorkTime.repository;
 
-import com.home.MyWorkTime.entity.AutomobileCardHavalModel;
 import com.home.MyWorkTime.entity.AutomobileCardMultibrandModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 

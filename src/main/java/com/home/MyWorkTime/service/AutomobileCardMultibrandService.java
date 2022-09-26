@@ -28,8 +28,8 @@ public class AutomobileCardMultibrandService {
         return AutomobileCardMultibrandRepository.saveAutomobileCardMultibrandModel(addNewAutomobileCardMultibrand);
     }
 
-    public List<AutomobileCardMultibrandModel> searchCardMultibrandBase(String searchCardMultibrandBaseInput) {
-        return automobileCardMultibrandVinRepository.searchCardMultibrandBase(searchCardMultibrandBaseInput);
+    public List<AutomobileCardMultibrandModel> searchCardMultibrandBase(String searchCardBaseInput) {
+        return automobileCardMultibrandVinRepository.searchCardMultibrandBase(searchCardBaseInput);
     }
 
     public Optional<AutomobileCardMultibrandModel> findById(Long id) {

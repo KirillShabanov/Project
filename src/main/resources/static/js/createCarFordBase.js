@@ -1,5 +1,5 @@
-let popup_noOk = document.getElementById("popup_noOk");
-let popup_ok = document.getElementById("popup_ok");
+popup_noOk = document.getElementById("popup_noOk");
+popup_ok = document.getElementById("popup_ok");
 
 function clearForm(){
     document.getElementById("floatingVINCarFordBase").value = "";

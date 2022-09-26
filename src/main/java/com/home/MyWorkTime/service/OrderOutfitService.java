@@ -38,9 +38,9 @@ public class OrderOutfitService {
         return orderOutfitRepository.save(addOrderOutfit);
     }
 
-    @Scheduled(cron = "1 5 20 * * *")
+    @Scheduled(cron = "1 05 20 * * *")
     public void updateOrderFirstCall() throws IOException {
-        FileInputStream filenamePost = new FileInputStream("C:/Users/User/Desktop/MyWorkTime/MyWorkTime/src/main/resources/importData/feedBack/firstCallKia.xls");
+        FileInputStream filenamePost = new FileInputStream("C:/Users/User/IdeaProjects/Project/src/main/resources/importData/feedback/firstCallKia.xls");
         Workbook wb = new HSSFWorkbook(filenamePost);
         for (int i = 0; i< wb.getSheetAt(0).getLastRowNum(); i++) {
             Date interDateFirstCall = wb.getSheetAt(0).getRow(i+1).getCell(7).getDateCellValue();
@@ -52,9 +52,9 @@ public class OrderOutfitService {
 
     }
 
-    @Scheduled(cron = "2 5 20 * * *")
+    @Scheduled(cron = "1 05 20 * * *")
     public void updateOrderNpsCall() throws IOException {
-        FileInputStream filenamePost = new FileInputStream("C:/Users/User/Desktop/MyWorkTime/MyWorkTime/src/main/resources/importData/feedBack/NPSkia.xls");
+        FileInputStream filenamePost = new FileInputStream("C:/Users/User/IdeaProjects/Project/src/main/resources/importData/feedback/NPSkia.xls");
         Workbook wb = new HSSFWorkbook(filenamePost);
         for (int i = 0; i< wb.getSheetAt(0).getLastRowNum(); i++) {
             int numOrder = (int) wb.getSheetAt(0).getRow(i+1).getCell(1).getNumericCellValue();

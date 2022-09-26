@@ -58,6 +58,6 @@ public class AutomobileCardMultibrandModel {
             joinColumns = @JoinColumn(name = "id"),
             inverseJoinColumns = @JoinColumn(name = "FK_vin")
     )
-    private List<AutomobileCardMultibrandModel> automobileCardKiaMultibrandSet;
+    private List<AutomobileCardMultibrandModel> automobileCardMultibrandSet;
 }
 

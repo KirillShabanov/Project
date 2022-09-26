@@ -10,6 +10,6 @@ import java.util.List;
 public interface AutomobileCardFordVinRepository extends JpaRepository<AutomobileCardFordModel, String> {
 
     @Transactional
-    @Query(value = "SELECT * FROM automobile_card_ford WHERE vin LIKE %:searchCardFordBaseInput% ", nativeQuery = true)
-    List<AutomobileCardFordModel> searchCardFordBase(String searchCardFordBaseInput);
+    @Query(value = "SELECT * FROM automobile_card_ford WHERE vin LIKE %:searchCardBaseInput% ", nativeQuery = true)
+    List<AutomobileCardFordModel> searchCardFordBase(String searchCardBaseInput);
 }

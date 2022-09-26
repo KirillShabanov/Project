@@ -28,8 +28,8 @@ public class AutomobileCardFordService {
         return AutomobileCardFordRepository.saveAutomobileCardFordModel(addNewAutomobileCardFord);
     }
 
-    public List<AutomobileCardFordModel> searchCardFordBase(String searchCardFordBaseInput) {
-        return automobileCardFordVinRepository.searchCardFordBase(searchCardFordBaseInput);
+    public List<AutomobileCardFordModel> searchCardFordBase(String searchCardBaseInput) {
+        return automobileCardFordVinRepository.searchCardFordBase(searchCardBaseInput);
     }
 
     public Optional<AutomobileCardFordModel> findById(Long id) {

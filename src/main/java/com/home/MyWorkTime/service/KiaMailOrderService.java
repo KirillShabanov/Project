@@ -3,7 +3,9 @@ package com.home.MyWorkTime.service;
 import com.home.MyWorkTime.entity.KiaMailOrderModel;
 import com.home.MyWorkTime.repository.KiaMailOrderRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -31,13 +33,13 @@ public class KiaMailOrderService {
         this.javaMailSender = javaMailSender;
     }
 
-    @Scheduled(cron = "2 * 20 * * *")
+    @Scheduled(cron = "1 50 16 * * *")
     public void createExcelKiaCall() {
         List<KiaMailOrderModel> firstCall = kiaMailOrderRepository.getFirstCall();
 
         try {
             // Создают Excel файл
-            String filenamePost = "C:/Users/User/Desktop/MyWorkTime/MyWorkTime/src/main/resources/exportData/feedBack/firstCallKia.xls";
+            String filenamePost = "C:/Users/User/IdeaProjects/Project/src/main/resources/exportData/feedBack/firstCallKia.xls";
             HSSFWorkbook workbookFirstCall = new HSSFWorkbook();
             HSSFSheet sheetFirstCall = workbookFirstCall.createSheet("ПостСервисныйОбзвон");
 
@@ -81,13 +83,13 @@ public class KiaMailOrderService {
             System.out.println("Бяда!");
         }
     }
-    @Scheduled(cron = "1 * 20 * * *")
+    @Scheduled(cron = "1 50 16 * * *")
     public void createExcelNPSKiaCall(){
         List<KiaMailOrderModel> npsCall = kiaMailOrderRepository.getNPSCall();
 
         try {
             // Создают Excel файл
-            String filenameNps = "C:/Users/User/Desktop/MyWorkTime/MyWorkTime/src/main/resources/exportData/feedBack/NPSkia.xls";
+            String filenameNps = "C:/Users/User/IdeaProjects/Project/src/main/resources/exportData/feedBack/NPSkia.xls";
             HSSFWorkbook workbookNPS = new HSSFWorkbook();
             HSSFSheet sheetNPS = workbookNPS.createSheet("NPS-KIA");
 
@@ -181,7 +183,7 @@ public class KiaMailOrderService {
         MimeMessage messageNpsCall = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(messageNpsCall, true, "UTF-8");
         helper.setFrom("info@vitautocity.by");
-        helper.setTo("administator@vitautocity.by"); //-получатель
+        helper.setTo("administrator@vitautocity.by"); //-получатель
         helper.setCc("k.shabanov@vitautocity.by");  //-копия
         helper.setSubject("NPS KIA");
         helper.setText("""

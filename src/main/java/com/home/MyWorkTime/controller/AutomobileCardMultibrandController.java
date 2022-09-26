@@ -23,9 +23,9 @@ public class AutomobileCardMultibrandController {
         return automobileCardMultibrandService.addNewAutomobileCardMultibrand(automobileCardMultibrandModel);
     }
 
-    @GetMapping(value = "/{searchCardMultibrandBaseInput}")
-    public List<AutomobileCardMultibrandModel> searchCardMultibrandBase(@PathVariable String searchCardMultibrandBaseInput){
-        return automobileCardMultibrandService.searchCardMultibrandBase(searchCardMultibrandBaseInput);
+    @GetMapping(value = "/{searchCardBaseInput}")
+    public List<AutomobileCardMultibrandModel> searchCardMultibrandBase(@PathVariable String searchCardBaseInput){
+        return automobileCardMultibrandService.searchCardMultibrandBase(searchCardBaseInput);
     }
 
     @GetMapping(value = "/findByIdCarMultibrand/{id}")

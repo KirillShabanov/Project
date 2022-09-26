@@ -40,6 +40,8 @@ public class OrderOutfitModel {
     @Column
     private String client_name;
     @Column
+    private String phone;
+    @Column
     private String master_receiver_name;
     @Column
     private String administrator_name;

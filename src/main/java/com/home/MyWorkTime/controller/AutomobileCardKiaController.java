@@ -23,9 +23,9 @@ public class AutomobileCardKiaController {
         return automobileCardKiaService.addNewAutomobileCardKia(automobileCardKiaModel);
     }
 
-    @GetMapping(value = "/{searchCardKiaBaseInput}")
-    public List<AutomobileCardKiaModel> searchCardKiaBase(@PathVariable String searchCardKiaBaseInput){
-        return automobileCardKiaService.searchCardKiaBase(searchCardKiaBaseInput);
+    @GetMapping(value = "/{searchCardBaseInput}")
+    public List<AutomobileCardKiaModel> searchCardKiaBase(@PathVariable String searchCardBaseInput){
+        return automobileCardKiaService.searchCardKiaBase(searchCardBaseInput);
     }
 
     @GetMapping(value = "/findByIdCarKia/{id}")

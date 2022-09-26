@@ -23,9 +23,9 @@ public class AutomobileCardCheryController {
         return automobileCardCheryService.addNewAutomobileCardChery(automobileCardCheryModel);
     }
 
-    @GetMapping(value = "/{searchCardCheryBaseInput}")
-    public List<AutomobileCardCheryModel> searchCardCheryBase(@PathVariable String searchCardCheryBaseInput){
-        return automobileCardCheryService.searchCardCheryBase(searchCardCheryBaseInput);
+    @GetMapping(value = "/{searchCardBaseInput}")
+    public List<AutomobileCardCheryModel> searchCardCheryBase(@PathVariable String searchCardBaseInput){
+        return automobileCardCheryService.searchCardCheryBase(searchCardBaseInput);
     }
 
     @GetMapping(value = "/findByIdCarChery/{id}")

@@ -11,7 +11,7 @@ import java.util.List;
 public interface CategoryRepairRepository extends JpaRepository <CategoryRepairModel, String> {
 
     @Transactional
-    @Query(value = "SELECT * FROM category WHERE category LIKE :categoryRepair ",
+    @Query(value = "SELECT * FROM category WHERE category LIKE %:categoryRepair ",
     nativeQuery = true)
     List<CategoryRepairModel> findAll(@Param("categoryRepair") String categoryRepair);
 

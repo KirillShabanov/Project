@@ -29,8 +29,8 @@ public class AutomobileCardHavalService {
         return AutomobileCardHavalRepository.saveAutomobileCardHavalModel(addNewAutomobileCardHaval);
     }
 
-    public List<AutomobileCardHavalModel> searchCardHavalBase(String searchCardHavalBaseInput) {
-        return automobileCardHavalVinRepository.searchCardHavalBase(searchCardHavalBaseInput);
+    public List<AutomobileCardHavalModel> searchCardHavalBase(String searchCardBaseInput) {
+        return automobileCardHavalVinRepository.searchCardHavalBase(searchCardBaseInput);
     }
 
     public Optional<AutomobileCardHavalModel> findById(Long id) {

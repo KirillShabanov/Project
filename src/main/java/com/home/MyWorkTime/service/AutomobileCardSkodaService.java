@@ -29,8 +29,8 @@ public class AutomobileCardSkodaService {
         return AutomobileCardSkodaRepository.saveAutomobileCardSkodaModel(addNewAutomobileCardSkoda);
     }
 
-    public List<AutomobileCardSkodaModel> searchCardSkodaBase(String searchCardSkodaBaseInput) {
-        return automobileCardSkodaVinRepository.searchCardSkodaBase(searchCardSkodaBaseInput);
+    public List<AutomobileCardSkodaModel> searchCardSkodaBase(String searchCardBaseInput) {
+        return automobileCardSkodaVinRepository.searchCardSkodaBase(searchCardBaseInput);
     }
 
     public Optional<AutomobileCardSkodaModel> findById(Long id) {

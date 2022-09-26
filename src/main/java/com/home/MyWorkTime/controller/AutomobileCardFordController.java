@@ -23,9 +23,9 @@ public class AutomobileCardFordController {
         return automobileCardFordService.addNewAutomobileCardFord(automobileCardFordModel);
     }
 
-    @GetMapping(value = "/{searchCardFordBaseInput}")
-    public List<AutomobileCardFordModel> searchCardFordBase(@PathVariable String searchCardFordBaseInput){
-        return automobileCardFordService.searchCardFordBase(searchCardFordBaseInput);
+    @GetMapping(value = "/{searchCardBaseInput}")
+    public List<AutomobileCardFordModel> searchCardFordBase(@PathVariable String searchCardBaseInput){
+        return automobileCardFordService.searchCardFordBase(searchCardBaseInput);
     }
 
     @GetMapping(value = "/findByIdCarFord/{id}")

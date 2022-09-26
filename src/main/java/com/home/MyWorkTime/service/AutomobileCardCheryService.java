@@ -28,8 +28,8 @@ public class AutomobileCardCheryService {
         return AutomobileCardCheryRepository.saveAutomobileCardCheryModel(addNewAutomobileCardChery);
     }
 
-    public List<AutomobileCardCheryModel> searchCardCheryBase(String searchCardCheryBaseInput) {
-        return automobileCardCheryVinRepository.searchCardCheryBase(searchCardCheryBaseInput);
+    public List<AutomobileCardCheryModel> searchCardCheryBase(String searchCardBaseInput) {
+        return automobileCardCheryVinRepository.searchCardCheryBase(searchCardBaseInput);
     }
 
     public Optional<AutomobileCardCheryModel> findById(Long id) {

@@ -1,9 +1,7 @@
 package com.home.MyWorkTime.service;
 
 import com.home.MyWorkTime.entity.MultibrandMailOrderModel;
-import com.home.MyWorkTime.entity.SkodaMailOrderModel;
 import com.home.MyWorkTime.repository.MultibrandMailOrderRepository;
-import com.home.MyWorkTime.repository.SkodaMailOrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -35,13 +33,13 @@ public class MultibrandMailOrderService {
         this.javaMailSender = javaMailSender;
     }
 
-    @Scheduled(cron = "2 * 20 * * *")
+    @Scheduled(cron = "1 50 16 * * *")
     public void createExcelMultibrandCall() {
         List<MultibrandMailOrderModel> firstCall = multibrandMailOrderRepository.getFirstCall();
 
         try {
             // Создают Excel файл
-            String filenamePost = "C:/Users/User/Desktop/MyWorkTime/MyWorkTime/src/main/resources/exportData/feedBack/firstCallMultibrand.xls";
+            String filenamePost = "C:/Users/User/IdeaProjects/Project/src/main/resources/exportData/feedBack/firstCallMultibrand.xls";
             HSSFWorkbook workbookFirstCall = new HSSFWorkbook();
             HSSFSheet sheetFirstCall = workbookFirstCall.createSheet("ПостСервисныйОбзвон");
 
@@ -81,19 +79,19 @@ public class MultibrandMailOrderService {
             //Отправка на почту
             sendHtmlMessageMultibrandFirstCall(filenamePost);
         }   catch ( Exception ex ) {
-            System.out.println("Бяда!");
+            System.out.println("Первый звонок Multibrand не создан!");
         }
 
 
 
     }
-    @Scheduled(cron = "1 * 20 * * *")
+    @Scheduled(cron = "1 50 16 * * *")
     public void createExcelNPSMultibrandCall(){
         List<MultibrandMailOrderModel> npsCall = multibrandMailOrderRepository.getNPSCall();
 
         try {
             // Создают Excel файл
-            String filenameNps = "C:/Users/User/Desktop/MyWorkTime/MyWorkTime/src/main/resources/exportData/feedBack/NPSmultibrand.xls";
+            String filenameNps = "C:/Users/User/IdeaProjects/Project/src/main/resources/exportData/feedBack/NPSmultibrand.xls";
             HSSFWorkbook workbookNPS = new HSSFWorkbook();
             HSSFSheet sheetNPS = workbookNPS.createSheet("NPS-Multibrand");
 
@@ -131,7 +129,7 @@ public class MultibrandMailOrderService {
             fileOutNps.close();
             sendHtmlMessageMultibrandNpsCall(filenameNps);
         }   catch ( Exception ex ) {
-            System.out.println("NPS Skoda не создан!");
+            System.out.println("NPS Multibrand не создан!");
         }
     }
 
@@ -140,11 +138,11 @@ public class MultibrandMailOrderService {
         MimeMessage messageFirstCall = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(messageFirstCall, true, "UTF-8");
         helper.setFrom("info@vitautocity.by");
-        helper.setTo("i.belyi@vitautocity.by");  //-получатель
-        helper.setTo("stoliarov@vitautocity.by");  //-копия
-        helper.setTo("timofeev@vitautocity.by");  //-копия
+        helper.setTo("i.beluy@vitautocity.by");  //-получатель
+        helper.setTo("stoliarov@vitautocity.by");  //-получатель
+        helper.setTo("timofeev@vitautocity.by");  //-получатель
         helper.setCc("k.shabanov@vitautocity.by");  //-копия
-        helper.setSubject("Пост сервисный обзвон клиентов Skoda");
+        helper.setSubject("Пост сервисный обзвон клиентов Multibrand");
         helper.setText("""
                 Добрый день!
 
@@ -162,14 +160,13 @@ public class MultibrandMailOrderService {
         MimeMessage messageNpsCall = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(messageNpsCall, true, "UTF-8");
         helper.setFrom("info@vitautocity.by");
-        helper.setTo("administator@vitautocity.by"); //-получатель
+        helper.setTo("administrator@vitautocity.by"); //-получатель
         helper.setCc("k.shabanov@vitautocity.by");  //-копия
         helper.setSubject("NPS Multibrand");
         helper.setText("""
                 Добрый день!
 
                 Прошу Вас провести обратную связь с клиентами и заполнить вложенный файл.
-                Прошу учесть, что один клиент из представленного списка должен быть опрошен по расширенному чек-листу.
                 После заполнения - отправить файл на электронную почту: k.shabanov@vitautocity.by""");
 
 

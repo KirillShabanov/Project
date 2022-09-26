@@ -7,10 +7,10 @@ let uniqueFlag1 = document.getElementById('Unique1');
 let notUniqueButtonFlag = document.getElementById('notUniqueButton');
 
 searchVin.oninput = function(){
-    searchCardKiaBaseInput = searchVin.value;
-    if (searchCardKiaBaseInput.length > 1){
+    searchCardBaseInput = searchVin.value;
+    if (searchCardBaseInput.length > 1){
         serchVinBase(); 
-        console.log(searchCardKiaBaseInput)
+        console.log(searchCardBaseInput)
     } 
 };
 
@@ -58,6 +58,7 @@ function searchBrand(){
 searchBrand();
 
 function serchVinBase(){
+    var FK_brand = selectBrand.value;
     var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
             if (this.readyState === 4 && this.status === 200) {
@@ -65,8 +66,7 @@ function serchVinBase(){
                 for (let i = 0; i < serchVinBaseNow.length; i++){
                     var check = serchVinBaseNow[i];
                     
-                    
-                    if(searchCardKiaBaseInput === check.vin) {
+                    if(searchCardBaseInput === check.vin) {
                         uniqueFlag.style.visibility = 'visible';
                         uniqueFlag.style.color = 'green';
                         notUniqueFlag.style.visibility = 'hidden';
@@ -75,7 +75,7 @@ function serchVinBase(){
                         document.getElementById('idCar').value = FK_vin;
                         
                     } 
-                    if (searchCardKiaBaseInput !== check.vin || searchCardKiaBaseInput.length < 17) {
+                    if (searchCardBaseInput !== check.vin || searchCardBaseInput.length < 17) {
                         notUniqueFlag.style.color = 'red';
                         notUniqueFlag.style.visibility = 'visible';
                         uniqueFlag.style.visibility = 'hidden';
@@ -84,8 +84,25 @@ function serchVinBase(){
                 } 
             }
         };
-    xhttp.open("GET", `http://localhost:8080/automobile_card_kia/${searchCardKiaBaseInput}`, true);
-    xhttp.send();       
+        if (FK_brand == 1){
+            xhttp.open("GET", `http://localhost:8080/automobile_card_kia/${searchCardBaseInput}`, true); 
+            xhttp.send(); 
+        } else if (FK_brand == 2){
+            xhttp.open("GET", `http://localhost:8080/automobile_card_skoda/${searchCardBaseInput}`, true); 
+            xhttp.send();  
+        } else if (FK_brand == 3){
+            xhttp.open("GET", `http://localhost:8080/automobile_card_haval/${searchCardBaseInput}`, true);
+            xhttp.send();
+        } else if (FK_brand == 4){
+            xhttp.open("GET", `http://localhost:8080/automobile_card_chery/${searchCardBaseInput}`, true);
+            xhttp.send();
+        } else if (FK_brand == 5){
+            xhttp.open("GET", `http://localhost:8080/automobile_card_ford/${searchCardBaseInput}`, true);
+            xhttp.send();
+        } else if (FK_brand == 6){
+            xhttp.open("GET", `http://localhost:8080/automobile_card_multibrand/${searchCardBaseInput}`, true);
+            xhttp.send(); 
+        }         
 };
 
 

@@ -12,7 +12,7 @@ import java.util.List;
 public interface AutomobileCardKiaVinRepository extends JpaRepository<AutomobileCardKiaModel, String> {
 
     @Transactional
-    @Query(value = "SELECT * FROM automobile_card_kia WHERE vin LIKE %:searchCardKiaBaseInput% ", nativeQuery = true)
-    List<AutomobileCardKiaModel> searchCardKiaBase(String searchCardKiaBaseInput);
+    @Query(value = "SELECT * FROM automobile_card_kia WHERE vin LIKE %:searchCardBaseInput% ", nativeQuery = true)
+    List<AutomobileCardKiaModel> searchCardKiaBase(String searchCardBaseInput);
 
 }

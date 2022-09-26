@@ -25,8 +25,8 @@ public class CarOwnerService {
         this.carOwnerRepository = carOwnerRepository;
     }
 
-    public List<Map<String, String>> vinForSearchKiaBaseInputKey(String vinForSearchKiaBaseInput){
-        return carOwnerVinRepository.vinForSearchKiaBaseInputKey(vinForSearchKiaBaseInput);
+    public List<Map<String, String>> vinForSearchKiaBaseInputKey(String vinForSearchBaseInput){
+        return carOwnerVinRepository.vinForSearchKiaBaseInputKey(vinForSearchBaseInput);
     }
 
     public CarOwnerModel saveOwner(CarOwnerModel carOwnerModel) {
